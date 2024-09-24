@@ -24,6 +24,7 @@ abstract class ProviderInterface {
     abstract putObject(bucketName: string, objectKey: string, objectBody: string): Promise<void>
     abstract getObject(bucketName: string, objectKey: string): Promise<string>
     abstract deleteObject(bucketName: string, objectKey: string): Promise<void>
+    abstract listObjects(bucketName: string): Promise<void>
 }
 
 export abstract class DistributedProvider extends ProviderInterface {

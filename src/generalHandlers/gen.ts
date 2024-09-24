@@ -141,3 +141,13 @@ export async function deleteObject(providers: string[] = allProviders) {
 
     // process.exit(0);
 }
+
+export async function listObjects(providers: string[] = allProviders) {
+    const bucketName: string | null = await getUserInput("Please enter the bucket name: ");
+    if (!bucketName) {
+        throw new Error("A bucket name is required.");
+    }
+
+    const mpcProvider = new MPCProvider(providers);
+    await mpcProvider.listObjects(bucketName);
+}

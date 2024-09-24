@@ -94,4 +94,15 @@ export class GCSProvider extends DistributedProvider {
         await this.client.bucket(bucketName).file(objectKey).delete();
     }
 
+    async listObjects(
+        bucketName: string
+    ): Promise<void> {
+        const [objects] = await this.client.bucket(bucketName).getFiles();
+        var log = `${bucketName} objects in GCS:\n`;
+        objects.forEach(object => {
+            log = log.concat('\t', object.name, '\n');
+        });
+        console.log(log);
+    }
+
 }

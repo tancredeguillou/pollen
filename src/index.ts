@@ -42,6 +42,8 @@ yargs(hideBin(process.argv))
         (args) => handler.getObject(args.providers as string[]))
     .command('deleteObject', 'Delete an object from its bucket.', {},
         (args) => handler.deleteObject(args.providers as string[]))
+    .command('listObjects', 'List all objects inside a bucket.', {},
+        (args) => handler.listObjects(args.providers as string[]))
     .demandCommand(1, 'You need to specify at least one command.')
     .help()
     .argv;

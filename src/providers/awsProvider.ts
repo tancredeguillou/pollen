@@ -135,4 +135,24 @@ export class AWSProvider extends DistributedProvider {
         )
         this.client.destroy
     }
+
+    async listObjects(
+        bucketName: string
+    ): Promise<void> {
+        const paginator = paginateListObjectsV2(
+            { client: this.client },
+            { Bucket: bucketName }
+        );
+        var log = `${bucketName} objects in AWS:\n`;
+        for await (const page of paginator) {
+            const objects = page.Contents;
+            if (objects) {
+                // For every object in each page, delete it.
+                for (const object of objects) {
+                    if (object.Key) log = log.concat('\t', object.Key, '\n');
+                }
+            }
+        }
+        console.log(log);
+    }
 }

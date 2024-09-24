@@ -93,4 +93,9 @@ export class MPCProvider extends MainProvider {
         await Promise.all(promiseList)
     }
 
+    async listObjects(bucketName: string): Promise<void> {
+        const promiseList = this.providers.map(provider => provider.listObjects(bucketName))
+        await Promise.all(promiseList)
+    }
+
 }
