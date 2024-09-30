@@ -1,14 +1,14 @@
 {
   "name": "mkl",
   "bin": {
-    "mkl": "./dist/index.js"
+    "mkl": "./dist/bin/cli.js"
   },
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link-cli": "npm unlink mkl && npm link mkl",
+    "link-cli": "npm unlink -g && npm link",
     "dev": "tsc -w",
     "build": "esbuild --bundle src/index.ts --platform=node --outfile=dist/index.js --packages=external"
   },
