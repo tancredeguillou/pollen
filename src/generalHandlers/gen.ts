@@ -17,6 +17,7 @@ import { MPCProvider } from '../providers/mpcProvider.js'
 import { allProviders } from '../providers/provider.js'
 import { PollenClient } from '../PollenClient.js';
 import { CreateBucketCommand } from '../commands/CreateBucketCommand.js';
+import { ListBucketsCommand } from '../commands/ListBucketsCommand.js';
 
 /************************ BUCKET RELATED FUNCTIONS ************************/
 export async function createBucket(providers: string[] = allProviders): Promise<void> {
@@ -28,7 +29,7 @@ export async function createBucket(providers: string[] = allProviders): Promise<
     //const mpcProvider = new MPCProvider(providers);
     //await mpcProvider.createBucket(bucketName);
     // process.exit(0)
-    const pollenClient = new PollenClient()
+    const pollenClient = new PollenClient(providers)
     await pollenClient.send(
         new CreateBucketCommand({
             Bucket: bucketName,
@@ -59,8 +60,12 @@ export async function deleteBucket(providers: string[] = allProviders) {
 }
 
 export async function listBuckets(providers: string[] = allProviders) {
-    const mpcProvider = new MPCProvider(providers);
-    await mpcProvider.listBuckets();
+    // const mpcProvider = new MPCProvider(providers);
+    // await mpcProvider.listBuckets();
+    const pollenClient = new PollenClient(providers)
+    await pollenClient.send(
+        new ListBucketsCommand()
+    )
 }
 
 /************************ OBJECT RELATED FUNCTIONS ************************/

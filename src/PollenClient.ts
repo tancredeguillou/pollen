@@ -1,10 +1,15 @@
 /**
  * Author: Tancrede Guillou
  */
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import {
     CreateBucketCommandInput,
     CreateBucketCommandOutput
 } from "./commands/CreateBucketCommand";
+import {
+    ListBucketsCommandInput,
+    ListBucketsCommandOutput
+} from "./commands/ListBucketsCommand";
 
 import { Command } from "./command";
 
@@ -12,6 +17,7 @@ import { AWSProvider } from './providers/awsProvider.js';
 import { GCSProvider } from './providers/gcsProvider.js';
 import { AzureProvider } from './providers/azureProvider.js';
 import { allProviders } from "./providers/provider.js";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
 
 export type ProviderType = AWSProvider | GCSProvider | AzureProvider
 
@@ -40,13 +46,17 @@ class ProviderFactory {
  * @public
  */
 export type ServiceInputTypes =
-    | CreateBucketCommandInput;
+    | CreateBucketCommandInput
+    | ListBucketsCommandInput
+    | DeleteBucketCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
-    | CreateBucketCommandOutput;
+    | CreateBucketCommandOutput
+    | ListBucketsCommandOutput
+    | DeleteBucketCommandOutput;
 
 /**
  * <p></p>
@@ -54,7 +64,7 @@ export type ServiceOutputTypes =
  */
 export class PollenClient<
     ServiceInputTypes extends object,
-    ServiceOutputTypes extends object
+    ServiceOutputTypes extends __MetadataBearer
 > {
 
     providers: ProviderType[];

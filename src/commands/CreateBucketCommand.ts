@@ -1,6 +1,8 @@
 /**
  * Author: Tancrede Guillou
  */
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
 import { CreateBucketRequest, CreateBucketOutput } from "../models/models"
 import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient"
 
@@ -8,7 +10,7 @@ import { Command } from "../command.js";
 
 export interface CreateBucketCommandInput extends CreateBucketRequest { }
 
-export interface CreateBucketCommandOutput extends CreateBucketOutput { }
+export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer { }
 
 export class CreateBucketCommand extends Command<
     CreateBucketCommandInput,

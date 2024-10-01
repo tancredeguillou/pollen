@@ -229,7 +229,7 @@ CopyObject
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 CreateBucket
 </summary>
 
@@ -669,7 +669,7 @@ ListBucketMetricsConfigurations
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 ListBuckets
 </summary>
 
