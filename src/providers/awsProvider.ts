@@ -29,7 +29,7 @@ export class AWSProvider extends DistributedProvider {
 
     /************************ BUCKET RELATED FUNCTIONS ************************/
     async createBucket(
-        bucketName: string
+        bucketName: string | undefined
     ): Promise<void> {
         await this.client.send(
             new CreateBucketCommand({

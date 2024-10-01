@@ -16,7 +16,7 @@ export const allProviders = ["aws", "azure", "gcs"]
 
 abstract class ProviderInterface {
     // Bucket related functions
-    abstract createBucket(bucketName: string): Promise<void>
+    abstract createBucket(bucketName: string | undefined): Promise<void>
     abstract deleteBucket(bucketName: string): Promise<void>
     abstract listBuckets(): Promise<void>
 

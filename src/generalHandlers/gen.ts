@@ -15,6 +15,8 @@ import { getUserInput } from '../util/io.js'
 
 import { MPCProvider } from '../providers/mpcProvider.js'
 import { allProviders } from '../providers/provider.js'
+import { PollenClient } from '../PollenClient.js';
+import { CreateBucketCommand } from '../commands/CreateBucketCommand.js';
 
 /************************ BUCKET RELATED FUNCTIONS ************************/
 export async function createBucket(providers: string[] = allProviders): Promise<void> {
@@ -23,9 +25,15 @@ export async function createBucket(providers: string[] = allProviders): Promise<
         throw new Error("A bucket name is required.");
     }
 
-    const mpcProvider = new MPCProvider(providers);
-    await mpcProvider.createBucket(bucketName);
+    //const mpcProvider = new MPCProvider(providers);
+    //await mpcProvider.createBucket(bucketName);
     // process.exit(0)
+    const pollenClient = new PollenClient()
+    await pollenClient.send(
+        new CreateBucketCommand({
+            Bucket: bucketName,
+        })
+    );
 }
 
 export async function deleteBucket(providers: string[] = allProviders) {
