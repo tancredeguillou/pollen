@@ -8,6 +8,10 @@
 import { Storage } from '@google-cloud/storage'
 
 import { DistributedProvider } from './provider.js'
+import { StreamingBlobPayloadInputTypes } from '@smithy/types';
+
+// type SaveData = string | Uint8Array | Buffer | internal.PipelineSource<string | Uint8Array | Buffer>
+// type StreamingBlobPayloadInputTypes = string | Uint8Array | Buffer | internal.Readable | ReadableStream<any> | Blob
 
 export class GCSProvider extends DistributedProvider {
 
@@ -30,8 +34,9 @@ export class GCSProvider extends DistributedProvider {
     }
 
     async deleteBucket(
-        bucketName: string
+        bucketName: string | undefined
     ) {
+        if (!bucketName) throw new Error('Bucket name not found.');
         const bucket = this.client.bucket(bucketName);
         const [files] = await bucket.getFiles();
         await Promise.all(files.map(file => file.delete()));
@@ -50,14 +55,16 @@ export class GCSProvider extends DistributedProvider {
 
     /************************ BUCKET RELATED FUNCTIONS ************************/
     async putObject(
-        bucketName: string,
-        objectKey: string,
-        objectBody: string
+        bucketName: string | undefined,
+        objectKey: string | undefined,
+        objectBody: StreamingBlobPayloadInputTypes | undefined
     ): Promise<void> {
+        if (!bucketName || !objectKey || !objectBody) throw new Error('Bucket name, object key or object body not found.');
         await this.client
             .bucket(bucketName)
             .file(objectKey)
-            .save(objectBody)
+            // TODO - toString is not the best way to handle this. We should find a better way to handle the objectBody.
+            .save(objectBody.toString());
     }
 
     // This function might come in handy later but is currently not necessary.
@@ -70,9 +77,10 @@ export class GCSProvider extends DistributedProvider {
     // }
 
     async getObject(
-        bucketName: string,
-        objectKey: string
+        bucketName: string | undefined,
+        objectKey: string | undefined
     ) {
+        if (!bucketName || !objectKey) throw new Error('Bucket name or object key not found.');
         const [Body] = await this.client
             .bucket(bucketName)
             .file(objectKey)
@@ -88,15 +96,17 @@ export class GCSProvider extends DistributedProvider {
     }
 
     async deleteObject(
-        bucketName: string,
-        objectKey: string
+        bucketName: string | undefined,
+        objectKey: string | undefined
     ) {
+        if (!bucketName || !objectKey) throw new Error('Bucket name or object key not found.');
         await this.client.bucket(bucketName).file(objectKey).delete();
     }
 
     async listObjects(
-        bucketName: string
+        bucketName: string | undefined
     ): Promise<void> {
+        if (!bucketName) throw new Error('Bucket name not found.');
         const [objects] = await this.client.bucket(bucketName).getFiles();
         var log = `${bucketName} objects in GCS:\n`;
         objects.forEach(object => {

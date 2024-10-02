@@ -17,6 +17,7 @@ import {
 } from "@aws-sdk/client-s3";
 
 import { DistributedProvider } from './provider.js'
+import { StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 export class AWSProvider extends DistributedProvider {
 
@@ -24,7 +25,23 @@ export class AWSProvider extends DistributedProvider {
 
     constructor() {
         super();
-        this.client = new S3Client();
+        // TODO - We must find a better way to connect automatically to AWS. Without storing credentials locally.
+        const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+        const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+        const sessionToken = process.env.AWS_SESSION_TOKEN;
+
+        if (!accessKeyId || !secretAccessKey) {
+            throw new Error('AWS credentials are not set in environment variables.');
+        }
+
+        this.client = new S3Client({
+            region: 'us-east-2',
+            credentials: {
+                accessKeyId,
+                secretAccessKey,
+                sessionToken
+            }
+        });
     }
 
     /************************ BUCKET RELATED FUNCTIONS ************************/
@@ -32,14 +49,12 @@ export class AWSProvider extends DistributedProvider {
         bucketName: string | undefined
     ): Promise<void> {
         await this.client.send(
-            new CreateBucketCommand({
-                Bucket: bucketName,
-            })
+            new CreateBucketCommand({ Bucket: bucketName })
         );
     }
 
     async deleteBucket(
-        bucketName: string
+        bucketName: string | undefined
     ): Promise<void> {
         const paginator = paginateListObjectsV2(
             { client: this.client },
@@ -78,9 +93,9 @@ export class AWSProvider extends DistributedProvider {
 
     /************************ OBJECT RELATED FUNCTIONS ************************/
     async putObject(
-        bucketName: string,
-        objectKey: string,
-        objectBody: string
+        bucketName: string | undefined,
+        objectKey: string | undefined,
+        objectBody: StreamingBlobPayloadInputTypes | undefined
     ): Promise<void> {
         await this.client.send(
             new PutObjectCommand({
@@ -92,7 +107,7 @@ export class AWSProvider extends DistributedProvider {
     }
 
     // This function might come in handy later but is currently not necessary.
-    // async putFile(bucketName: string, filePath: string, objectKey?: string): Promise<void> {
+    // async putFile(bucketName: string | undefined, filePath: string | undefined, objectKey?: string | undefined): Promise<void> {
     //     if (!objectKey) objectKey = path.basename(filePath)
     //     const fileStream = fs.createReadStream(filePath);
     //     const { size } = fs.statSync(filePath)
@@ -107,8 +122,8 @@ export class AWSProvider extends DistributedProvider {
     // }
 
     async getObject(
-        bucketName: string,
-        objectKey: string
+        bucketName: string | undefined,
+        objectKey: string | undefined
     ): Promise<string> {
         const { Body } = await this.client.send(
             new GetObjectCommand({
@@ -127,8 +142,8 @@ export class AWSProvider extends DistributedProvider {
     }
 
     async deleteObject(
-        bucketName: string,
-        objectKey: string
+        bucketName: string | undefined,
+        objectKey: string | undefined
     ): Promise<void> {
         await this.client.send(
             new DeleteObjectCommand({ Bucket: bucketName, Key: objectKey })
@@ -137,7 +152,7 @@ export class AWSProvider extends DistributedProvider {
     }
 
     async listObjects(
-        bucketName: string
+        bucketName: string | undefined
     ): Promise<void> {
         const paginator = paginateListObjectsV2(
             { client: this.client },

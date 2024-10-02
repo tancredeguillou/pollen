@@ -10,6 +10,14 @@ import {
     ListBucketsCommandInput,
     ListBucketsCommandOutput
 } from "./commands/ListBucketsCommand";
+import {
+    PutObjectCommandInput,
+    PutObjectCommandOutput
+} from "./commands/PutObjectCommand";
+import {
+    DeleteBucketCommandInput,
+    DeleteBucketCommandOutput
+} from "./commands/DeleteBucketCommand";
 
 import { Command } from "./command";
 
@@ -17,7 +25,6 @@ import { AWSProvider } from './providers/awsProvider.js';
 import { GCSProvider } from './providers/gcsProvider.js';
 import { AzureProvider } from './providers/azureProvider.js';
 import { allProviders } from "./providers/provider.js";
-import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
 
 export type ProviderType = AWSProvider | GCSProvider | AzureProvider
 
@@ -48,7 +55,8 @@ class ProviderFactory {
 export type ServiceInputTypes =
     | CreateBucketCommandInput
     | ListBucketsCommandInput
-    | DeleteBucketCommandInput;
+    | DeleteBucketCommandInput
+    | PutObjectCommandInput;
 
 /**
  * @public
@@ -56,7 +64,8 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
     | CreateBucketCommandOutput
     | ListBucketsCommandOutput
-    | DeleteBucketCommandOutput;
+    | DeleteBucketCommandOutput
+    | PutObjectCommandOutput;
 
 /**
  * <p></p>

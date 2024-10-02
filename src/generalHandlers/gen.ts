@@ -18,6 +18,7 @@ import { allProviders } from '../providers/provider.js'
 import { PollenClient } from '../PollenClient.js';
 import { CreateBucketCommand } from '../commands/CreateBucketCommand.js';
 import { ListBucketsCommand } from '../commands/ListBucketsCommand.js';
+import { PutObjectCommand } from '../commands/PutObjectCommand.js';
 
 /************************ BUCKET RELATED FUNCTIONS ************************/
 export async function createBucket(providers: string[] = allProviders): Promise<void> {
@@ -28,7 +29,6 @@ export async function createBucket(providers: string[] = allProviders): Promise<
 
     //const mpcProvider = new MPCProvider(providers);
     //await mpcProvider.createBucket(bucketName);
-    // process.exit(0)
     const pollenClient = new PollenClient(providers)
     await pollenClient.send(
         new CreateBucketCommand({
@@ -84,11 +84,16 @@ export async function putObject(providers: string[] = allProviders): Promise<voi
             throw new Error("An object body is required.");
         }
 
-        const mpcProvider = new MPCProvider(providers);
-        await mpcProvider.putObject(bucketName, objectKey, objectBody);
-
-        console.log('Done.')
-        // process.exit(0);
+        // const mpcProvider = new MPCProvider(providers);
+        // await mpcProvider.putObject(bucketName, objectKey, objectBody);
+        const pollenClient = new PollenClient(providers);
+        await pollenClient.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: objectKey,
+                Body: objectBody,
+            })
+        );
     } catch (err: any) {
         console.error(`Error: ${err.message}`);
     }
@@ -106,8 +111,6 @@ export async function putFile(providers: string[] = allProviders): Promise<void>
 
     const mpcProvider = new MPCProvider(providers);
     await mpcProvider.putFile(bucketName, filePath)
-
-    // process.exit(0)
 }
 
 export async function getObject(providers: string[] = allProviders) {
@@ -124,7 +127,6 @@ export async function getObject(providers: string[] = allProviders) {
     const recoveredData = await mpcProvider.getObject(bucketName, objectKey);
 
     console.log('Recovered body: ', recoveredData)
-
 }
 
 export async function deleteObject(providers: string[] = allProviders) {
@@ -151,8 +153,6 @@ export async function deleteObject(providers: string[] = allProviders) {
         const mpcProvider = new MPCProvider(providers);
         await mpcProvider.deleteObject(bucketName, objectKey)
     }
-
-    // process.exit(0);
 }
 
 export async function listObjects(providers: string[] = allProviders) {

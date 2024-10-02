@@ -253,7 +253,7 @@ CreateSession
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucket
 </summary>
 
