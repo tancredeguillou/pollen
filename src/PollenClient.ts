@@ -18,6 +18,18 @@ import {
     DeleteBucketCommandInput,
     DeleteBucketCommandOutput
 } from "./commands/DeleteBucketCommand";
+import {
+    DeleteObjectCommandOutput,
+    DeleteObjectCommandInput,
+} from "./commands/DeleteObjectCommand";
+import {
+    GetObjectCommandInput,
+    GetObjectCommandOutput
+} from "./commands/GetObjectCommand";
+import {
+    ListObjectsCommandInput,
+    ListObjectsCommandOutput
+} from "./commands/ListObjectsCommand";
 
 import { Command } from "./command";
 
@@ -56,7 +68,10 @@ export type ServiceInputTypes =
     | CreateBucketCommandInput
     | ListBucketsCommandInput
     | DeleteBucketCommandInput
-    | PutObjectCommandInput;
+    | PutObjectCommandInput
+    | DeleteObjectCommandInput
+    | GetObjectCommandInput
+    | ListObjectsCommandInput;
 
 /**
  * @public
@@ -65,7 +80,10 @@ export type ServiceOutputTypes =
     | CreateBucketCommandOutput
     | ListBucketsCommandOutput
     | DeleteBucketCommandOutput
-    | PutObjectCommandOutput;
+    | PutObjectCommandOutput
+    | DeleteObjectCommandOutput
+    | GetObjectCommandOutput
+    | ListObjectsCommandOutput;
 
 /**
  * <p></p>

@@ -19,6 +19,9 @@ import { PollenClient } from '../PollenClient.js';
 import { CreateBucketCommand } from '../commands/CreateBucketCommand.js';
 import { ListBucketsCommand } from '../commands/ListBucketsCommand.js';
 import { PutObjectCommand } from '../commands/PutObjectCommand.js';
+import { GetObjectCommand } from '../commands/GetObjectCommand.js';
+import { ListObjectsCommand } from '../commands/ListObjectsCommand.js';
+import { DeleteBucketCommand } from '../commands/DeleteBucketCommand.js';
 
 /************************ BUCKET RELATED FUNCTIONS ************************/
 export async function createBucket(providers: string[] = allProviders): Promise<void> {
@@ -54,8 +57,14 @@ export async function deleteBucket(providers: string[] = allProviders) {
     rl.close();
 
     if (result === "y") {
-        const mpcProvider = new MPCProvider(providers);
-        await mpcProvider.deleteBucket(bucketName);
+        // const mpcProvider = new MPCProvider(providers);
+        // await mpcProvider.deleteBucket(bucketName);
+        const pollenClient = new PollenClient(providers)
+        await pollenClient.send(
+            new DeleteBucketCommand({
+                Bucket: bucketName,
+            })
+        );
     }
 }
 
@@ -123,10 +132,15 @@ export async function getObject(providers: string[] = allProviders) {
         throw new Error("An object key is required.");
     }
 
-    const mpcProvider = new MPCProvider(providers);
-    const recoveredData = await mpcProvider.getObject(bucketName, objectKey);
+    // const mpcProvider = new MPCProvider(providers);
+    // const recoveredData = await mpcProvider.getObject(bucketName, objectKey);
 
-    console.log('Recovered body: ', recoveredData)
+    // console.log('Recovered body: ', recoveredData)
+    const pollenClient = new PollenClient(providers);
+    await pollenClient.send(new GetObjectCommand({
+        Bucket: bucketName,
+        Key: objectKey,
+    }));
 }
 
 export async function deleteObject(providers: string[] = allProviders) {
@@ -150,8 +164,15 @@ export async function deleteObject(providers: string[] = allProviders) {
     rl.close();
 
     if (result === "y") {
-        const mpcProvider = new MPCProvider(providers);
-        await mpcProvider.deleteObject(bucketName, objectKey)
+        // const mpcProvider = new MPCProvider(providers);
+        // await mpcProvider.deleteObject(bucketName, objectKey)
+        const pollenClient = new PollenClient(providers);
+        await pollenClient.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: objectKey,
+            })
+        );
     }
 }
 
@@ -161,6 +182,12 @@ export async function listObjects(providers: string[] = allProviders) {
         throw new Error("A bucket name is required.");
     }
 
-    const mpcProvider = new MPCProvider(providers);
-    await mpcProvider.listObjects(bucketName);
+    // const mpcProvider = new MPCProvider(providers);
+    // await mpcProvider.listObjects(bucketName);
+    const pollenClient = new PollenClient(providers);
+    await pollenClient.send(
+        new ListObjectsCommand({
+            Bucket: bucketName,
+        })
+    );
 }

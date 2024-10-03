@@ -3,8 +3,6 @@
  */
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { $Command } from "@aws-sdk/client-s3";
-
 import { PutObjectRequest, PutObjectOutput } from "../models/models";
 import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
 

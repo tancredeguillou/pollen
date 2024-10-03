@@ -1,8 +1,6 @@
 /**
  * Author: Tancrede Guillou
  */
-import { $Command } from "@aws-sdk/client-s3";
-
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ProviderType } from "./PollenClient"

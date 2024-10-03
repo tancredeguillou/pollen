@@ -357,7 +357,7 @@ DeleteBucketWebsite
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteObject
 </summary>
 
@@ -549,7 +549,7 @@ GetBucketWebsite
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObject
 </summary>
 
@@ -693,7 +693,7 @@ ListMultipartUploads
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 ListObjects
 </summary>
 
@@ -869,7 +869,7 @@ PutBucketWebsite
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutObject
 </summary>
 
