@@ -25,40 +25,28 @@ import { CopyObjectCommand } from "@aws-sdk/client-s3";
 // Command Inputs imported from Commands
 import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
 
-export class AWSProvider extends DistributedProvider {
-    async copyObject(input: CopyObjectCommandInput): Promise<void> {
-        try {
-            await this.client.send(new CopyObjectCommand({
-                Bucket: input.Bucket,
-                Key: input.Key,
-                CopySource: input.CopySource
-            }));
-            console.log(`Object copied successfully from ${input.CopySource} to ${input.Bucket}/${input.Key}`);
-        } catch (error) {
-            console.error("Error copying object:", error);
-            throw new Error("Failed to copy object.");
-        }
-    }
+export interface AWSProviderConfig {
+    accessKeyId?: string;
+    secretAccessKey?: string;
+    sessionToken?: string;
+}
 
+export class AWSProvider extends DistributedProvider {
     client: S3Client;
 
-    constructor() {
+    constructor(config: AWSProviderConfig) {
         super();
         // TODO - We must find a better way to connect automatically to AWS. Without storing credentials locally.
-        const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-        const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-        const sessionToken = process.env.AWS_SESSION_TOKEN;
-
-        if (!accessKeyId || !secretAccessKey) {
+        if (!config.accessKeyId || !config.secretAccessKey || !config.sessionToken) {
             throw new Error('AWS credentials are not set in environment variables.');
         }
 
         this.client = new S3Client({
             region: 'us-east-2',
             credentials: {
-                accessKeyId,
-                secretAccessKey,
-                sessionToken
+                accessKeyId: config.accessKeyId,
+                secretAccessKey: config.secretAccessKey,
+                sessionToken: config.sessionToken
             }
         });
     }
@@ -188,5 +176,19 @@ export class AWSProvider extends DistributedProvider {
             }
         }
         console.log(log);
+    }
+
+    async copyObject(input: CopyObjectCommandInput): Promise<void> {
+        try {
+            await this.client.send(new CopyObjectCommand({
+                Bucket: input.Bucket,
+                Key: input.Key,
+                CopySource: input.CopySource
+            }));
+            console.log(`Object copied successfully from ${input.CopySource} to ${input.Bucket}/${input.Key}`);
+        } catch (error) {
+            console.error("Error copying object:", error);
+            throw new Error("Failed to copy object.");
+        }
     }
 }

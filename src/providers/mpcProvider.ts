@@ -11,7 +11,6 @@ import { AWSProvider } from './awsProvider.js';
 import { GCSProvider } from './gcsProvider.js';
 import { AzureProvider } from './azureProvider.js';
 
-import { MainProvider } from "./provider.js";
 import { allProviders } from "./provider.js";
 
 import {
@@ -42,12 +41,11 @@ class ProviderFactory {
     }
 }
 
-export class MPCProvider extends MainProvider {
+export class MPCProvider {
 
     providers: ProviderType[];
 
     constructor(providerNames: string[] = allProviders) {
-        super();
         this.providers = ProviderFactory.createProvidersList(providerNames);
     }
 

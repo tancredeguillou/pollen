@@ -25,25 +25,26 @@ async function streamToBuffer(readableStream: NodeJS.ReadableStream): Promise<Bu
     });
 }
 
+export interface AzureProviderConfig {
+    accountName?: string;
+    connectionString?: string;
+}
+
 export class AzureProvider extends DistributedProvider {
     client: BlobServiceClient;
 
-    constructor() {
+    constructor(config: AzureProviderConfig) {
         super();
-        const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-        if (!accountName) throw new Error('Azure Storage account name not found.');
-        const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
-        if (!AZURE_STORAGE_CONNECTION_STRING) throw Error('Azure Storage Connection string not found');
-
-        // USING CONNECTION STRING - NO NEED TO LOGIN BUT LESS SECURE
-        this.client = BlobServiceClient.fromConnectionString(
-            AZURE_STORAGE_CONNECTION_STRING
-        );
-        // USING DEFAULT AZUR CREDENTIALS - MORE SECURE BUT NEEDS LOGIN
-        // this.client = new BlobServiceClient(
-        //     `https://${accountName}.blob.core.windows.net`,
-        //     new DefaultAzureCredential(),
-        // );
+        if (!config.accountName && !config.connectionString) {
+            throw new Error('Azure credentials are not set in environment variables.');
+        } else if (!config.accountName && config.connectionString) {
+            this.client = BlobServiceClient.fromConnectionString(config.connectionString);
+        } else {
+            this.client = new BlobServiceClient(
+                `https://${config.accountName}.blob.core.windows.net`,
+                new DefaultAzureCredential(),
+            );
+        }
     }
 
     /************************ BUCKET RELATED FUNCTIONS ************************/

@@ -37,31 +37,37 @@ import {
 
 import { Command } from "./command";
 
-import { AWSProvider } from './providers/awsProvider';
-import { GCSProvider } from './providers/gcsProvider';
-import { AzureProvider } from './providers/azureProvider';
+import { AWSProvider, AWSProviderConfig } from './providers/awsProvider';
+import { GCSProvider, GCSProviderConfig } from './providers/gcsProvider';
+import { AzureProvider, AzureProviderConfig } from './providers/azureProvider';
 import { allProviders } from "./providers/provider";
 
 export type ProviderType = AWSProvider | GCSProvider | AzureProvider
 
 class ProviderFactory {
-    // Define a method that creates a provider instance based on a provider name.
-    static createProvider(providerName: string): ProviderType {
-        switch (providerName) {
-            case "aws":
-                return new AWSProvider();
-            case "azure":
-                return new AzureProvider();
-            case "gcs":
-                return new GCSProvider();
-            default:
-                throw new Error(`Unknown provider: ${providerName}`);
-        }
+    config: PollenClientConfig;
+
+    constructor(config: PollenClientConfig) {
+        config.providerNames = config.providerNames || allProviders;
+        this.config = config;
     }
 
     // Define a method that creates an array of provider instances based on an array of provider names.
-    static createProvidersList(providerNames: string[]): ProviderType[] {
-        return providerNames.map(ProviderFactory.createProvider);
+    createProvidersList(): ProviderType[] {
+        if (!this.config.providerNames) throw new Error('No providers where given.');
+        return this.config.providerNames.map(providerName => {
+            switch (providerName) {
+                case "aws":
+                    if (!this.config.awsConfig) throw new Error('AWS config not found 3.');
+                    return new AWSProvider(this.config.awsConfig);
+                case "azure":
+                    return new AzureProvider(this.config.azureConfig);
+                case "gcs":
+                    return new GCSProvider(this.config.gcsConfig);
+                default:
+                    throw new Error(`Unknown provider: ${providerName}`);
+            }
+        });
     }
 }
 
@@ -92,6 +98,16 @@ export type ServiceOutputTypes =
     | CopyObjectCommandOutput;
 
 /**
+ * @public
+ */
+export interface PollenClientConfig {
+    providerNames?: string[];
+    awsConfig: AWSProviderConfig;
+    azureConfig: AzureProviderConfig;
+    gcsConfig: GCSProviderConfig;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -102,8 +118,9 @@ export class PollenClient<
 
     providers: ProviderType[];
 
-    constructor(providerNames: string[] = allProviders) {
-        this.providers = ProviderFactory.createProvidersList(providerNames);
+    constructor(config: PollenClientConfig) {
+        if (!config.awsConfig) throw new Error('AWS config not found.');
+        this.providers = new ProviderFactory(config).createProvidersList();
     }
 
     send<InputType extends ServiceInputTypes, OutputType extends ServiceOutputTypes>(

@@ -14,15 +14,18 @@ import { CopyObjectCommandInput } from '../commands/CopyObjectCommand';
 // type SaveData = string | Uint8Array | Buffer | internal.PipelineSource<string | Uint8Array | Buffer>
 // type StreamingBlobPayloadInputTypes = string | Uint8Array | Buffer | internal.Readable | ReadableStream<any> | Blob
 
+export interface GCSProviderConfig {
+    projectId?: string;
+}
+
 export class GCSProvider extends DistributedProvider {
     client: Storage;
 
-    constructor() {
+    constructor(config: GCSProviderConfig) {
         super();
-        const projectId = process.env.GCLOUD_STORAGE_PROJECT_ID;
-        if (!projectId) throw new Error('GCloud Storage project ID not found.');
+        if (!config.projectId) throw new Error('GCloud Storage project ID not found.');
         this.client = new Storage({
-            projectId: projectId
+            projectId: config.projectId
         });
     }
 
