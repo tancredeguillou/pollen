@@ -5,4 +5,4 @@
  * Last modified: 30/09/2024
  */
 
-export { MPCProvider } from "./providers/mpcProvider"
+export * from './PollenClient';
