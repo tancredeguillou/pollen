@@ -11,6 +11,16 @@ import { S3Client } from "@aws-sdk/client-s3";
 import { Storage } from "@google-cloud/storage";
 import { StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+// Importing Command Inputs. Should the functions return Command outputs? TODO
+import { ListBucketsCommandInput } from "../commands/ListBucketsCommand";
+import { CreateBucketCommandInput } from "../commands/CreateBucketCommand";
+import { PutObjectCommandInput } from "../commands/PutObjectCommand";
+import { DeleteBucketCommandInput } from "../commands/DeleteBucketCommand";
+import { DeleteObjectCommandInput } from "../commands/DeleteObjectCommand";
+import { GetObjectCommandInput } from "../commands/GetObjectCommand";
+import { ListObjectsCommandInput } from "../commands/ListObjectsCommand";
+import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
+
 type ProviderClient = BlobServiceClient | S3Client | Storage;
 
 export const allProviders = ["aws", "azure", "gcs"]
@@ -26,6 +36,7 @@ abstract class ProviderInterface {
     abstract getObject(bucketName: string | undefined, objectKey: string | undefined): Promise<string>
     abstract deleteObject(bucketName: string | undefined, objectKey: string | undefined): Promise<void>
     abstract listObjects(bucketName: string | undefined): Promise<void>
+    abstract copyObject(input: CopyObjectCommandInput): Promise<void>
 }
 
 export abstract class DistributedProvider extends ProviderInterface {

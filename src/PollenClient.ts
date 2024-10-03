@@ -30,13 +30,17 @@ import {
     ListObjectsCommandInput,
     ListObjectsCommandOutput
 } from "./commands/ListObjectsCommand";
+import {
+    CopyObjectCommandInput,
+    CopyObjectCommandOutput
+} from "./commands/CopyObjectCommand";
 
 import { Command } from "./command";
 
-import { AWSProvider } from './providers/awsProvider.js';
-import { GCSProvider } from './providers/gcsProvider.js';
-import { AzureProvider } from './providers/azureProvider.js';
-import { allProviders } from "./providers/provider.js";
+import { AWSProvider } from './providers/awsProvider';
+import { GCSProvider } from './providers/gcsProvider';
+import { AzureProvider } from './providers/azureProvider';
+import { allProviders } from "./providers/provider";
 
 export type ProviderType = AWSProvider | GCSProvider | AzureProvider
 
@@ -71,7 +75,8 @@ export type ServiceInputTypes =
     | PutObjectCommandInput
     | DeleteObjectCommandInput
     | GetObjectCommandInput
-    | ListObjectsCommandInput;
+    | ListObjectsCommandInput
+    | CopyObjectCommandInput;
 
 /**
  * @public
@@ -83,7 +88,8 @@ export type ServiceOutputTypes =
     | PutObjectCommandOutput
     | DeleteObjectCommandOutput
     | GetObjectCommandOutput
-    | ListObjectsCommandOutput;
+    | ListObjectsCommandOutput
+    | CopyObjectCommandOutput;
 
 /**
  * <p></p>

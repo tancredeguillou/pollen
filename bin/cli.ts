@@ -36,8 +36,8 @@ yargs(hideBin(process.argv))
     // Object related
     .command('putObject', 'Put an object into a bucket.', {},
         (args) => handler.putObject(args.providers as string[]))
-    .command('putFile', 'Put a file into a bucket.', {},
-        (args) => handler.putFile(args.providers as string[]))
+    // .command('putFile', 'Put a file into a bucket.', {},
+    //     (args) => handler.putFile(args.providers as string[]))
     .command('getObject', 'Get an object from a bucket.', {},
         (args) => handler.getObject(args.providers as string[]))
     .command('deleteObject', 'Delete an object from its bucket.', {},

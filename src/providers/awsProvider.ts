@@ -16,10 +16,29 @@ import {
     ListBucketsCommand
 } from "@aws-sdk/client-s3";
 
-import { DistributedProvider } from './provider.js'
+import { DistributedProvider } from './provider'
 import { StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+// Commands imported from AWS SDK
+import { CopyObjectCommand } from "@aws-sdk/client-s3";
+
+// Command Inputs imported from Commands
+import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
+
 export class AWSProvider extends DistributedProvider {
+    async copyObject(input: CopyObjectCommandInput): Promise<void> {
+        try {
+            await this.client.send(new CopyObjectCommand({
+                Bucket: input.Bucket,
+                Key: input.Key,
+                CopySource: input.CopySource
+            }));
+            console.log(`Object copied successfully from ${input.CopySource} to ${input.Bucket}/${input.Key}`);
+        } catch (error) {
+            console.error("Error copying object:", error);
+            throw new Error("Failed to copy object.");
+        }
+    }
 
     client: S3Client;
 

@@ -7,14 +7,14 @@
 
 import { Storage } from '@google-cloud/storage'
 
-import { DistributedProvider } from './provider.js'
+import { DistributedProvider } from './provider'
 import { StreamingBlobPayloadInputTypes } from '@smithy/types';
+import { CopyObjectCommandInput } from '../commands/CopyObjectCommand';
 
 // type SaveData = string | Uint8Array | Buffer | internal.PipelineSource<string | Uint8Array | Buffer>
 // type StreamingBlobPayloadInputTypes = string | Uint8Array | Buffer | internal.Readable | ReadableStream<any> | Blob
 
 export class GCSProvider extends DistributedProvider {
-
     client: Storage;
 
     constructor() {
@@ -53,7 +53,7 @@ export class GCSProvider extends DistributedProvider {
         console.log(log);
     }
 
-    /************************ BUCKET RELATED FUNCTIONS ************************/
+    /************************ OBJECT RELATED FUNCTIONS ************************/
     async putObject(
         bucketName: string | undefined,
         objectKey: string | undefined,
@@ -114,5 +114,19 @@ export class GCSProvider extends DistributedProvider {
         });
         console.log(log);
     }
+
+    async copyObject(input: CopyObjectCommandInput): Promise<void> {
+        const { Bucket, Key, CopySource } = input;
+        if (!Bucket || !Key || !CopySource) {
+            throw new Error('Source bucket, source key, destination bucket, or destination key not found.');
+        }
+
+        const [sourceBucket, sourceKey] = CopySource.split('/');
+        await this.client
+            .bucket(sourceBucket)
+            .file(sourceKey)
+            .copy(this.client.bucket(Bucket).file(Key));
+    }
+
 
 }

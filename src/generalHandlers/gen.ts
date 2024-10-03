@@ -13,7 +13,7 @@ dotenv.config();
 
 import { getUserInput } from '../util/io.js'
 
-import { MPCProvider } from '../providers/mpcProvider.js'
+// import { MPCProvider } from '../providers/mpcProvider.js'
 import { allProviders } from '../providers/provider.js'
 import { PollenClient } from '../PollenClient.js';
 import { CreateBucketCommand } from '../commands/CreateBucketCommand.js';
@@ -108,19 +108,19 @@ export async function putObject(providers: string[] = allProviders): Promise<voi
     }
 }
 
-export async function putFile(providers: string[] = allProviders): Promise<void> {
-    const bucketName: string | null = await getUserInput("Please enter the bucket name: ");
-    if (!bucketName) {
-        throw new Error("A bucket name is required.");
-    }
-    const filePath: string | null = await getUserInput("Please enter the file path: ");
-    if (!filePath) {
-        throw new Error("A file path is required.");
-    }
+// export async function putFile(providers: string[] = allProviders): Promise<void> {
+//     const bucketName: string | null = await getUserInput("Please enter the bucket name: ");
+//     if (!bucketName) {
+//         throw new Error("A bucket name is required.");
+//     }
+//     const filePath: string | null = await getUserInput("Please enter the file path: ");
+//     if (!filePath) {
+//         throw new Error("A file path is required.");
+//     }
 
-    const mpcProvider = new MPCProvider(providers);
-    await mpcProvider.putFile(bucketName, filePath)
-}
+//     const mpcProvider = new MPCProvider(providers);
+//     await mpcProvider.putFile(bucketName, filePath)
+// }
 
 export async function getObject(providers: string[] = allProviders) {
     const bucketName: string | null = await getUserInput("Please enter the bucket name: ");

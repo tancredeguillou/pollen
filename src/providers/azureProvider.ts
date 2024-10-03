@@ -8,8 +8,9 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 import { DefaultAzureCredential } from "@azure/identity"
 
-import { DistributedProvider } from './provider.js'
+import { DistributedProvider } from './provider'
 import { StreamingBlobPayloadInputTypes } from "@smithy/types";
+import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
 
 async function streamToBuffer(readableStream: NodeJS.ReadableStream): Promise<Buffer> {
     return new Promise((resolve, reject) => {
@@ -25,7 +26,6 @@ async function streamToBuffer(readableStream: NodeJS.ReadableStream): Promise<Bu
 }
 
 export class AzureProvider extends DistributedProvider {
-
     client: BlobServiceClient;
 
     constructor() {
@@ -139,6 +139,25 @@ export class AzureProvider extends DistributedProvider {
             log = log.concat('\t', blob.name, '\n');
         }
         console.log(log);
+    }
+
+    async copyObject(input: CopyObjectCommandInput): Promise<void> {
+        const { Bucket, Key, CopySource } = input;
+        if (!Bucket || !Key || !CopySource) {
+            throw new Error('Source bucket, source key, destination bucket, or destination key not found.');
+        }
+
+        const [sourceBucket, sourceKey] = CopySource.split('/');
+        const sourceBlobClient = this.client
+            .getContainerClient(sourceBucket)
+            .getBlobClient(sourceKey);
+
+        const destinationBlobClient = this.client
+            .getContainerClient(Bucket)
+            .getBlobClient(Key);
+
+        const copyPoller = await destinationBlobClient.beginCopyFromURL(sourceBlobClient.url);
+        await copyPoller.pollUntilDone();
     }
 
 }
