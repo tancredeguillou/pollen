@@ -3,7 +3,7 @@
  */
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ProviderType } from "./PollenClient"
+import { Providers } from "./providers/providers";
 
 export abstract class Command<
     Input extends ClientInput,
@@ -13,5 +13,5 @@ export abstract class Command<
 > {
     abstract input: Input;
 
-    abstract resolve(providers: ProviderType[]): Promise<void>;
+    abstract resolve(providers: Providers): Promise<void>;
 }

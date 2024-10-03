@@ -4,8 +4,9 @@
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ListObjectsRequest, ListObjectsOutput } from "../models/models_0";
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
 import { Command } from "../command.js";
+import { Providers } from "../providers/providers";
 
 /**
  * @public
@@ -188,8 +189,8 @@ export class ListObjectsCommand extends Command<
         this.input = input;
     }
 
-    async resolve(providers: ProviderType[]): Promise<void> {
-        const promiseList = providers.map(provider => provider.listObjects(this.input.Bucket))
+    async resolve(providers: Providers): Promise<void> {
+        const promiseList = providers.list.map(provider => provider.listObjects(this.input.Bucket))
         await Promise.all(promiseList)
     }
 }

@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { DeleteBucketRequest } from "../models/models";
 
 import { Command } from "../command.js";
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { Providers } from "../providers/providers";
 
 export interface DeleteBucketCommandInput extends DeleteBucketRequest { }
 
@@ -25,10 +26,10 @@ export class DeleteBucketCommand extends Command<
         this.input = input;
     }
 
-    async resolve(providers: ProviderType[]): Promise<void> {
+    async resolve(providers: Providers): Promise<void> {
         const bucketName = this.input.Bucket
         if (bucketName) {
-            const promiseList = providers.map(provider => provider.deleteBucket(bucketName))
+            const promiseList = providers.list.map(provider => provider.deleteBucket(bucketName))
             await Promise.all(promiseList)
         }
     }

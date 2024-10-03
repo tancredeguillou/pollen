@@ -13,7 +13,7 @@ dotenv.config();
 
 import { getUserInput } from '../util/io.js'
 
-import { allProviders } from '../providers/provider.js'
+import { allProviders } from '../providers/providers.js'
 import { PollenClient, PollenClientConfig } from '../PollenClient.js';
 import { CreateBucketCommand } from '../commands/CreateBucketCommand.js';
 import { ListBucketsCommand } from '../commands/ListBucketsCommand.js';

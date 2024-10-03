@@ -4,8 +4,9 @@
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CopyObjectRequest, CopyObjectOutput } from "../models/models_0";
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
 import { Command } from "../command.js";
+import { Providers } from "../providers/providers";
 
 /**
  * @public
@@ -318,8 +319,8 @@ export class CopyObjectCommand extends Command<
         super();
         this.input = input;
     }
-    async resolve(providers: ProviderType[]): Promise<void> {
-        const promiseList = providers.map(provider => provider.copyObject(this.input))
+    async resolve(providers: Providers): Promise<void> {
+        const promiseList = providers.list.map(provider => provider.copyObject(this.input))
         await Promise.all(promiseList)
     }
 }

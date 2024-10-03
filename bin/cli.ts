@@ -12,7 +12,7 @@ import { hideBin } from "yargs/helpers";
 
 import * as handler from "../src/generalHandlers/gen.js"
 
-import { allProviders } from "../src/providers/provider.js";
+import { allProviders } from "../src/providers/providers.js";
 
 console.warn = function () { }; // suppress warnings
 

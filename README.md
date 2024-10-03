@@ -557,7 +557,7 @@ GetObject
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectAcl
 </summary>
 
@@ -565,7 +565,7 @@ GetObjectAcl
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectAttributes
 </summary>
 
@@ -573,7 +573,7 @@ GetObjectAttributes
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectLegalHold
 </summary>
 
@@ -581,7 +581,7 @@ GetObjectLegalHold
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectLockConfiguration
 </summary>
 
@@ -589,7 +589,7 @@ GetObjectLockConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectRetention
 </summary>
 
@@ -597,7 +597,7 @@ GetObjectRetention
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectTagging
 </summary>
 
@@ -605,7 +605,7 @@ GetObjectTagging
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetObjectTorrent
 </summary>
 

@@ -34,42 +34,41 @@ import {
     CopyObjectCommandInput,
     CopyObjectCommandOutput
 } from "./commands/CopyObjectCommand";
+import {
+    GetObjectAclCommandInput,
+    GetObjectAclCommandOutput
+} from "./commands/GetObjectAclCommand";
+import {
+    GetObjectAttributesCommandInput,
+    GetObjectAttributesCommandOutput
+} from "./commands/GetObjectAttributesCommand";
+import {
+    GetObjectLegalHoldCommandInput,
+    GetObjectLegalHoldCommandOutput
+} from "./commands/GetObjectLegalHoldCommand";
+import {
+    GetObjectLockConfigurationCommandInput,
+    GetObjectLockConfigurationCommandOutput
+} from "./commands/GetObjectLockConfigurationCommand";
+import {
+    GetObjectRetentionCommandInput,
+    GetObjectRetentionCommandOutput
+} from "./commands/GetObjectRetentionCommand";
+import {
+    GetObjectTaggingCommandInput,
+    GetObjectTaggingCommandOutput
+} from "./commands/GetObjectTaggingCommand";
+import {
+    GetObjectTorrentCommandInput,
+    GetObjectTorrentCommandOutput
+} from "./commands/GetObjectTorrentCommand";
 
 import { Command } from "./command";
 
-import { AWSProvider, AWSProviderConfig } from './providers/awsProvider';
-import { GCSProvider, GCSProviderConfig } from './providers/gcsProvider';
-import { AzureProvider, AzureProviderConfig } from './providers/azureProvider';
-import { allProviders } from "./providers/provider";
-
-export type ProviderType = AWSProvider | GCSProvider | AzureProvider
-
-class ProviderFactory {
-    config: PollenClientConfig;
-
-    constructor(config: PollenClientConfig) {
-        config.providerNames = config.providerNames || allProviders;
-        this.config = config;
-    }
-
-    // Define a method that creates an array of provider instances based on an array of provider names.
-    createProvidersList(): ProviderType[] {
-        if (!this.config.providerNames) throw new Error('No providers where given.');
-        return this.config.providerNames.map(providerName => {
-            switch (providerName) {
-                case "aws":
-                    if (!this.config.awsConfig) throw new Error('AWS config not found 3.');
-                    return new AWSProvider(this.config.awsConfig);
-                case "azure":
-                    return new AzureProvider(this.config.azureConfig);
-                case "gcs":
-                    return new GCSProvider(this.config.gcsConfig);
-                default:
-                    throw new Error(`Unknown provider: ${providerName}`);
-            }
-        });
-    }
-}
+import { Providers, ProviderType } from "./providers/providers";
+import { AWSProviderConfig } from "./providers/awsProvider";
+import { AzureProviderConfig } from "./providers/azureProvider";
+import { GCSProviderConfig } from "./providers/gcsProvider";
 
 /**
  * @public
@@ -82,7 +81,14 @@ export type ServiceInputTypes =
     | DeleteObjectCommandInput
     | GetObjectCommandInput
     | ListObjectsCommandInput
-    | CopyObjectCommandInput;
+    | CopyObjectCommandInput
+    | GetObjectAclCommandInput
+    | GetObjectAttributesCommandInput
+    | GetObjectLegalHoldCommandInput
+    | GetObjectLockConfigurationCommandInput
+    | GetObjectRetentionCommandInput
+    | GetObjectTaggingCommandInput
+    | GetObjectTorrentCommandInput;
 
 /**
  * @public
@@ -95,7 +101,14 @@ export type ServiceOutputTypes =
     | DeleteObjectCommandOutput
     | GetObjectCommandOutput
     | ListObjectsCommandOutput
-    | CopyObjectCommandOutput;
+    | CopyObjectCommandOutput
+    | GetObjectAclCommandOutput
+    | GetObjectAttributesCommandOutput
+    | GetObjectLegalHoldCommandOutput
+    | GetObjectLockConfigurationCommandOutput
+    | GetObjectRetentionCommandOutput
+    | GetObjectTaggingCommandOutput
+    | GetObjectTorrentCommandOutput;
 
 /**
  * @public
@@ -116,11 +129,10 @@ export class PollenClient<
     ServiceOutputTypes extends __MetadataBearer
 > {
 
-    providers: ProviderType[];
+    providers: Providers;
 
     constructor(config: PollenClientConfig) {
-        if (!config.awsConfig) throw new Error('AWS config not found.');
-        this.providers = new ProviderFactory(config).createProvidersList();
+        this.providers = new Providers(config)
     }
 
     send<InputType extends ServiceInputTypes, OutputType extends ServiceOutputTypes>(

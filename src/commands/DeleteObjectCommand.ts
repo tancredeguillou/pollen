@@ -4,8 +4,9 @@
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeleteObjectRequest, DeleteObjectOutput } from "../models/models_0";
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
 import { Command } from "../command.js";
+import { Providers } from "../providers/providers";
 
 /**
  * @public
@@ -193,8 +194,8 @@ export class DeleteObjectCommand extends Command<
         this.input = input;
     }
 
-    async resolve(providers: ProviderType[]): Promise<void> {
-        const promiseList = providers.map(provider => provider.deleteObject(this.input.Bucket, this.input.Key));
+    async resolve(providers: Providers): Promise<void> {
+        const promiseList = providers.list.map(provider => provider.deleteObject(this.input.Bucket, this.input.Key));
         await Promise.all(promiseList);
     }
 }

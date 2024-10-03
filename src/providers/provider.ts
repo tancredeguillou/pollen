@@ -23,8 +23,6 @@ import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
 
 type ProviderClient = BlobServiceClient | S3Client | Storage;
 
-export const allProviders = ["aws", "azure", "gcs"]
-
 abstract class ProviderInterface {
     // Bucket related functions
     abstract createBucket(bucketName: string | undefined): Promise<void>

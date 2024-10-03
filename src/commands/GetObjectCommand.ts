@@ -4,9 +4,10 @@
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
 import { GetObjectRequest, GetObjectOutput } from "../models/models_0";
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
 import { Command } from "../command.js";
 import { mpcRecoverData } from "../mpc/mpc.js";
+import { Providers } from "../providers/providers";
 
 /**
  * @public
@@ -341,8 +342,8 @@ export class GetObjectCommand extends Command<
         this.input = input;
     }
 
-    async resolve(providers: ProviderType[]): Promise<void> {
-        const promiseList = providers.map(provider => provider.getObject(this.input.Bucket, this.input.Key))
+    async resolve(providers: Providers): Promise<void> {
+        const promiseList = providers.list.map(provider => provider.getObject(this.input.Bucket, this.input.Key))
         const shares = await Promise.all(promiseList)
         const recoveredData = mpcRecoverData(shares)
         console.log('Recovered body: ', recoveredData)

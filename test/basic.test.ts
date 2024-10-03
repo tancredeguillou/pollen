@@ -21,23 +21,28 @@ const pollenClientConfig: PollenClientConfig = {
 describe('PollenClient', () => {
     it('should initialize with all providers by default', () => {
         const client = new PollenClient(pollenClientConfig);
-        expect(client.providers).toHaveLength(3);
-        expect(client.providers[0]).toBeInstanceOf(AWSProvider);
-        expect(client.providers[1]).toBeInstanceOf(AzureProvider);
-        expect(client.providers[2]).toBeInstanceOf(GCSProvider);
+        expect(client.providers.list).toHaveLength(3);
+        expect(client.providers.list[0]).toBeInstanceOf(AWSProvider);
+        expect(client.providers.list[1]).toBeInstanceOf(AzureProvider);
+        expect(client.providers.list[2]).toBeInstanceOf(GCSProvider);
     });
 
     it('should initialize with specified providers', () => {
         pollenClientConfig.providerNames = ['aws', 'gcs'];
         const client = new PollenClient(pollenClientConfig);
-        expect(client.providers).toHaveLength(2);
-        expect(client.providers[0]).toBeInstanceOf(AWSProvider);
-        expect(client.providers[1]).toBeInstanceOf(GCSProvider);
+        expect(client.providers.list).toHaveLength(2);
+        expect(client.providers.list[0]).toBeInstanceOf(AWSProvider);
+        expect(client.providers.list[1]).toBeInstanceOf(GCSProvider);
     });
 
     it('should throw an error for unknown provider', () => {
-        pollenClientConfig.providerNames = ['unknown'];
+        pollenClientConfig.providerNames = ['unknown', 'aws'];
         expect(() => new PollenClient(pollenClientConfig)).toThrow('Unknown provider: unknown');
+    });
+
+    it('should throw an error for not having aws provider', () => {
+        pollenClientConfig.providerNames = ['unknown'];
+        expect(() => new PollenClient(pollenClientConfig)).toThrow('aws must be included in the provider list but got unknown.');
     });
 
     it('should call resolve on the command with providers', async () => {

@@ -4,9 +4,10 @@
 import { MetadataBearer as __MetadataBearer } from "@smithy/types"
 
 import { ListBucketsRequest, ListBucketsOutput } from "../models/models"
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient"
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient"
 
 import { Command } from "../command.js"
+import { Providers } from "../providers/providers";
 
 export interface ListBucketsCommandInput extends ListBucketsRequest { }
 
@@ -29,8 +30,8 @@ export class ListBucketsCommand extends Command<
         }
     }
 
-    async resolve(providers: ProviderType[]): Promise<void> {
-        const promiseList = providers.map(provider => provider.listBuckets())
+    async resolve(providers: Providers): Promise<void> {
+        const promiseList = providers.list.map(provider => provider.listBuckets())
         await Promise.all(promiseList)
     }
 }

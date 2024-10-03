@@ -4,10 +4,11 @@
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { PutObjectRequest, PutObjectOutput } from "../models/models";
-import { ProviderType, ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
 
 import { Command } from "../command.js";
 import { mpcSplitData } from "../mpc/mpc.js";
+import { Providers } from "../providers/providers";
 
 export interface PutObjectCommandInput extends Omit<PutObjectRequest, "Body"> {
     Body?: StreamingBlobPayloadInputTypes;
@@ -28,13 +29,13 @@ export class PutObjectCommand extends Command<
         this.input = input;
     }
 
-    async resolve(providers: ProviderType[]): Promise<void> {
+    async resolve(providers: Providers): Promise<void> {
         if (!this.input.Body) throw new Error('Body not found.');
         // TODO - toString() is not the right way to handle this.
         const shares = mpcSplitData(this.input.Body.toString());
         // Iterate over the shares array and call putObject() for each share
         const promiseList = shares.map((share, index) => {
-            const provider = providers[index % providers.length];
+            const provider = providers.list[index % providers.list.length];
             return provider.putObject(this.input.Bucket, this.input.Key, share);
         });
         await Promise.all(promiseList)
