@@ -621,7 +621,7 @@ GetPublicAccessBlock
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 HeadBucket
 </summary>
 
@@ -629,7 +629,7 @@ HeadBucket
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 HeadObject
 </summary>
 

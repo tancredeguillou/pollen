@@ -282,6 +282,14 @@ import {
     PutObjectTaggingCommandInput,
     PutObjectTaggingCommandOutput
 } from "./commands/PutObjectTaggingCommand";
+import {
+    HeadBucketCommandInput,
+    HeadBucketCommandOutput
+} from "./commands/HeadBucketCommand";
+import {
+    HeadObjectCommandInput,
+    HeadObjectCommandOutput
+} from "./commands/HeadObjectCommand";
 
 import { Command } from "./command";
 
@@ -363,7 +371,9 @@ export type ServiceInputTypes =
     | PutObjectLegalHoldCommandInput
     | PutObjectLockConfigurationCommandInput
     | PutObjectRetentionCommandInput
-    | PutObjectTaggingCommandInput;
+    | PutObjectTaggingCommandInput
+    | HeadBucketCommandInput
+    | HeadObjectCommandInput;
 
 /**
  * @public
@@ -438,7 +448,9 @@ export type ServiceOutputTypes =
     | PutObjectLegalHoldCommandOutput
     | PutObjectLockConfigurationCommandOutput
     | PutObjectRetentionCommandOutput
-    | PutObjectTaggingCommandOutput;
+    | PutObjectTaggingCommandOutput
+    | HeadBucketCommandOutput
+    | HeadObjectCommandOutput;
 
 /**
  * @public
