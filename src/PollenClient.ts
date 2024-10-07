@@ -190,6 +190,78 @@ import {
     DeleteBucketWebsiteCommandInput,
     DeleteBucketWebsiteCommandOutput
 } from "./commands/DeleteBucketWebsiteCommand";
+import {
+    PutBucketAccelerateConfigurationCommandInput,
+    PutBucketAccelerateConfigurationCommandOutput
+} from "./commands/PutBucketAccelerateConfigurationCommand";
+import {
+    PutBucketAclCommandInput,
+    PutBucketAclCommandOutput
+} from "./commands/PutBucketAclCommand";
+import {
+    PutBucketAnalyticsConfigurationCommandInput,
+    PutBucketAnalyticsConfigurationCommandOutput
+} from "./commands/PutBucketAnalyticsConfigurationCommand";
+import {
+    PutBucketCorsCommandInput,
+    PutBucketCorsCommandOutput
+} from "./commands/PutBucketCorsCommand";
+import {
+    PutBucketEncryptionCommandInput,
+    PutBucketEncryptionCommandOutput
+} from "./commands/PutBucketEncryptionCommand";
+import {
+    PutBucketIntelligentTieringConfigurationCommandInput,
+    PutBucketIntelligentTieringConfigurationCommandOutput
+} from "./commands/PutBucketIntelligentTieringConfigurationCommand";
+import {
+    PutBucketInventoryConfigurationCommandInput,
+    PutBucketInventoryConfigurationCommandOutput
+} from "./commands/PutBucketInventoryConfigurationCommand";
+import {
+    PutBucketLifecycleConfigurationCommandInput,
+    PutBucketLifecycleConfigurationCommandOutput
+} from "./commands/PutBucketLifecycleConfigurationCommand";
+import {
+    PutBucketLoggingCommandInput,
+    PutBucketLoggingCommandOutput
+} from "./commands/PutBucketLoggingCommand";
+import {
+    PutBucketMetricsConfigurationCommandInput,
+    PutBucketMetricsConfigurationCommandOutput
+} from "./commands/PutBucketMetricsConfigurationCommand";
+import {
+    PutBucketNotificationConfigurationCommandInput,
+    PutBucketNotificationConfigurationCommandOutput
+} from "./commands/PutBucketNotificationConfigurationCommand";
+import {
+    PutBucketOwnershipControlsCommandInput,
+    PutBucketOwnershipControlsCommandOutput
+} from "./commands/PutBucketOwnershipControlsCommand";
+import {
+    PutBucketPolicyCommandInput,
+    PutBucketPolicyCommandOutput
+} from "./commands/PutBucketPolicyCommand";
+import {
+    PutBucketReplicationCommandInput,
+    PutBucketReplicationCommandOutput
+} from "./commands/PutBucketReplicationCommand";
+import {
+    PutBucketRequestPaymentCommandInput,
+    PutBucketRequestPaymentCommandOutput
+} from "./commands/PutBucketRequestPaymentCommand";
+import {
+    PutBucketTaggingCommandInput,
+    PutBucketTaggingCommandOutput
+} from "./commands/PutBucketTaggingCommand";
+import {
+    PutBucketVersioningCommandInput,
+    PutBucketVersioningCommandOutput
+} from "./commands/PutBucketVersioningCommand";
+import {
+    PutBucketWebsiteCommandInput,
+    PutBucketWebsiteCommandOutput
+} from "./commands/PutBucketWebsiteCommand";
 
 import { Command } from "./command";
 
@@ -248,7 +320,25 @@ export type ServiceInputTypes =
     | DeleteBucketPolicyCommandInput
     | DeleteBucketReplicationCommandInput
     | DeleteBucketTaggingCommandInput
-    | DeleteBucketWebsiteCommandInput;
+    | DeleteBucketWebsiteCommandInput
+    | PutBucketAccelerateConfigurationCommandInput
+    | PutBucketAclCommandInput
+    | PutBucketAnalyticsConfigurationCommandInput
+    | PutBucketCorsCommandInput
+    | PutBucketEncryptionCommandInput
+    | PutBucketIntelligentTieringConfigurationCommandInput
+    | PutBucketInventoryConfigurationCommandInput
+    | PutBucketLifecycleConfigurationCommandInput
+    | PutBucketLoggingCommandInput
+    | PutBucketMetricsConfigurationCommandInput
+    | PutBucketNotificationConfigurationCommandInput
+    | PutBucketOwnershipControlsCommandInput
+    | PutBucketPolicyCommandInput
+    | PutBucketReplicationCommandInput
+    | PutBucketRequestPaymentCommandInput
+    | PutBucketTaggingCommandInput
+    | PutBucketVersioningCommandInput
+    | PutBucketWebsiteCommandInput;
 
 /**
  * @public
@@ -300,7 +390,25 @@ export type ServiceOutputTypes =
     | DeleteBucketPolicyCommandOutput
     | DeleteBucketReplicationCommandOutput
     | DeleteBucketTaggingCommandOutput
-    | DeleteBucketWebsiteCommandOutput;
+    | DeleteBucketWebsiteCommandOutput
+    | PutBucketAccelerateConfigurationCommandOutput
+    | PutBucketAclCommandOutput
+    | PutBucketAnalyticsConfigurationCommandOutput
+    | PutBucketCorsCommandOutput
+    | PutBucketEncryptionCommandOutput
+    | PutBucketIntelligentTieringConfigurationCommandOutput
+    | PutBucketInventoryConfigurationCommandOutput
+    | PutBucketLifecycleConfigurationCommandOutput
+    | PutBucketLoggingCommandOutput
+    | PutBucketMetricsConfigurationCommandOutput
+    | PutBucketNotificationConfigurationCommandOutput
+    | PutBucketOwnershipControlsCommandOutput
+    | PutBucketPolicyCommandOutput
+    | PutBucketReplicationCommandOutput
+    | PutBucketRequestPaymentCommandOutput
+    | PutBucketTaggingCommandOutput
+    | PutBucketVersioningCommandOutput
+    | PutBucketWebsiteCommandOutput;
 
 /**
  * @public

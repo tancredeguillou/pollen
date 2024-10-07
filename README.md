@@ -725,7 +725,7 @@ ListParts
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketAccelerateConfiguration
 </summary>
 
@@ -733,7 +733,7 @@ PutBucketAccelerateConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketAcl
 </summary>
 
@@ -741,7 +741,7 @@ PutBucketAcl
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketAnalyticsConfiguration
 </summary>
 
@@ -749,7 +749,7 @@ PutBucketAnalyticsConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketCors
 </summary>
 
@@ -757,7 +757,7 @@ PutBucketCors
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketEncryption
 </summary>
 
@@ -765,7 +765,7 @@ PutBucketEncryption
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketIntelligentTieringConfiguration
 </summary>
 
@@ -773,7 +773,7 @@ PutBucketIntelligentTieringConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketInventoryConfiguration
 </summary>
 
@@ -781,7 +781,7 @@ PutBucketInventoryConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketLifecycleConfiguration
 </summary>
 
@@ -789,7 +789,7 @@ PutBucketLifecycleConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketLogging
 </summary>
 
@@ -797,7 +797,7 @@ PutBucketLogging
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketMetricsConfiguration
 </summary>
 
@@ -805,7 +805,7 @@ PutBucketMetricsConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketNotificationConfiguration
 </summary>
 
@@ -813,7 +813,7 @@ PutBucketNotificationConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketOwnershipControls
 </summary>
 
@@ -821,7 +821,7 @@ PutBucketOwnershipControls
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketPolicy
 </summary>
 
@@ -829,7 +829,7 @@ PutBucketPolicy
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketReplication
 </summary>
 
@@ -837,7 +837,7 @@ PutBucketReplication
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketRequestPayment
 </summary>
 
@@ -845,7 +845,7 @@ PutBucketRequestPayment
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketTagging
 </summary>
 
@@ -853,7 +853,7 @@ PutBucketTagging
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketVersioning
 </summary>
 
@@ -861,7 +861,7 @@ PutBucketVersioning
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutBucketWebsite
 </summary>
 
