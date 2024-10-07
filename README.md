@@ -389,7 +389,7 @@ DeletePublicAccessBlock
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketAccelerateConfiguration
 </summary>
 
@@ -397,7 +397,7 @@ GetBucketAccelerateConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketAcl
 </summary>
 
@@ -405,7 +405,7 @@ GetBucketAcl
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketAnalyticsConfiguration
 </summary>
 
@@ -413,7 +413,7 @@ GetBucketAnalyticsConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketCors
 </summary>
 
@@ -421,7 +421,7 @@ GetBucketCors
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketEncryption
 </summary>
 
@@ -429,7 +429,7 @@ GetBucketEncryption
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketIntelligentTieringConfiguration
 </summary>
 
@@ -437,7 +437,7 @@ GetBucketIntelligentTieringConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketInventoryConfiguration
 </summary>
 
@@ -445,7 +445,7 @@ GetBucketInventoryConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketLifecycleConfiguration
 </summary>
 
@@ -453,7 +453,7 @@ GetBucketLifecycleConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketLocation
 </summary>
 
@@ -461,7 +461,7 @@ GetBucketLocation
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketLogging
 </summary>
 
@@ -469,7 +469,7 @@ GetBucketLogging
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketMetricsConfiguration
 </summary>
 
@@ -477,7 +477,7 @@ GetBucketMetricsConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketNotificationConfiguration
 </summary>
 
@@ -485,7 +485,7 @@ GetBucketNotificationConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketOwnershipControls
 </summary>
 
@@ -493,7 +493,7 @@ GetBucketOwnershipControls
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketPolicy
 </summary>
 
@@ -501,7 +501,7 @@ GetBucketPolicy
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketPolicyStatus
 </summary>
 
@@ -509,7 +509,7 @@ GetBucketPolicyStatus
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketReplication
 </summary>
 
@@ -517,7 +517,7 @@ GetBucketReplication
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketRequestPayment
 </summary>
 
@@ -525,7 +525,7 @@ GetBucketRequestPayment
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketTagging
 </summary>
 
@@ -533,7 +533,7 @@ GetBucketTagging
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketVersioning
 </summary>
 
@@ -541,7 +541,7 @@ GetBucketVersioning
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetBucketWebsite
 </summary>
 

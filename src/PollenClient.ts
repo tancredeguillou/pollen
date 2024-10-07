@@ -62,6 +62,86 @@ import {
     GetObjectTorrentCommandInput,
     GetObjectTorrentCommandOutput
 } from "./commands/GetObjectTorrentCommand";
+import {
+    GetBucketAccelerateConfigurationCommandInput,
+    GetBucketAccelerateConfigurationCommandOutput
+} from "./commands/GetBucketAccelerateConfigurationCommand";
+import {
+    GetBucketAclCommandInput,
+    GetBucketAclCommandOutput
+} from "./commands/GetBucketAclCommand";
+import {
+    GetBucketAnalyticsConfigurationCommandInput,
+    GetBucketAnalyticsConfigurationCommandOutput
+} from "./commands/GetBucketAnalyticsConfigurationCommand";
+import {
+    GetBucketCorsCommandInput,
+    GetBucketCorsCommandOutput
+} from "./commands/GetBucketCorsCommand";
+import {
+    GetBucketEncryptionCommandInput,
+    GetBucketEncryptionCommandOutput
+} from "./commands/GetBucketEncryptionCommand";
+import {
+    GetBucketIntelligentTieringConfigurationCommandInput,
+    GetBucketIntelligentTieringConfigurationCommandOutput
+} from "./commands/GetBucketIntelligentTieringConfigurationCommand";
+import {
+    GetBucketInventoryConfigurationCommandInput,
+    GetBucketInventoryConfigurationCommandOutput
+} from "./commands/GetBucketInventoryConfigurationCommand";
+import {
+    GetBucketLifecycleConfigurationCommandInput,
+    GetBucketLifecycleConfigurationCommandOutput
+} from "./commands/GetBucketLifecycleConfigurationCommand";
+import {
+    GetBucketLocationCommandInput,
+    GetBucketLocationCommandOutput
+} from "./commands/GetBucketLocationCommand";
+import {
+    GetBucketLoggingCommandInput,
+    GetBucketLoggingCommandOutput
+} from "./commands/GetBucketLoggingCommand";
+import {
+    GetBucketMetricsConfigurationCommandInput,
+    GetBucketMetricsConfigurationCommandOutput
+} from "./commands/GetBucketMetricsConfigurationCommand";
+import {
+    GetBucketNotificationConfigurationCommandInput,
+    GetBucketNotificationConfigurationCommandOutput
+} from "./commands/GetBucketNotificationConfigurationCommand";
+import {
+    GetBucketOwnershipControlsCommandInput,
+    GetBucketOwnershipControlsCommandOutput
+} from "./commands/GetBucketOwnershipControlsCommand";
+import {
+    GetBucketPolicyCommandInput,
+    GetBucketPolicyCommandOutput
+} from "./commands/GetBucketPolicyCommand";
+import {
+    GetBucketPolicyStatusCommandInput,
+    GetBucketPolicyStatusCommandOutput
+} from "./commands/GetBucketPolicyStatusCommand";
+import {
+    GetBucketReplicationCommandInput,
+    GetBucketReplicationCommandOutput
+} from "./commands/GetBucketReplicationCommand";
+import {
+    GetBucketRequestPaymentCommandInput,
+    GetBucketRequestPaymentCommandOutput
+} from "./commands/GetBucketRequestPaymentCommand";
+import {
+    GetBucketTaggingCommandInput,
+    GetBucketTaggingCommandOutput
+} from "./commands/GetBucketTaggingCommand";
+import {
+    GetBucketVersioningCommandInput,
+    GetBucketVersioningCommandOutput
+} from "./commands/GetBucketVersioningCommand";
+import {
+    GetBucketWebsiteCommandInput,
+    GetBucketWebsiteCommandOutput
+} from "./commands/GetBucketWebsiteCommand";
 
 import { Command } from "./command";
 
@@ -88,7 +168,27 @@ export type ServiceInputTypes =
     | GetObjectLockConfigurationCommandInput
     | GetObjectRetentionCommandInput
     | GetObjectTaggingCommandInput
-    | GetObjectTorrentCommandInput;
+    | GetObjectTorrentCommandInput
+    | GetBucketAccelerateConfigurationCommandInput
+    | GetBucketAclCommandInput
+    | GetBucketAnalyticsConfigurationCommandInput
+    | GetBucketCorsCommandInput
+    | GetBucketEncryptionCommandInput
+    | GetBucketIntelligentTieringConfigurationCommandInput
+    | GetBucketInventoryConfigurationCommandInput
+    | GetBucketLifecycleConfigurationCommandInput
+    | GetBucketLocationCommandInput
+    | GetBucketLoggingCommandInput
+    | GetBucketMetricsConfigurationCommandInput
+    | GetBucketNotificationConfigurationCommandInput
+    | GetBucketOwnershipControlsCommandInput
+    | GetBucketPolicyCommandInput
+    | GetBucketPolicyStatusCommandInput
+    | GetBucketReplicationCommandInput
+    | GetBucketRequestPaymentCommandInput
+    | GetBucketTaggingCommandInput
+    | GetBucketVersioningCommandInput
+    | GetBucketWebsiteCommandInput;
 
 /**
  * @public
@@ -108,7 +208,27 @@ export type ServiceOutputTypes =
     | GetObjectLockConfigurationCommandOutput
     | GetObjectRetentionCommandOutput
     | GetObjectTaggingCommandOutput
-    | GetObjectTorrentCommandOutput;
+    | GetObjectTorrentCommandOutput
+    | GetBucketAccelerateConfigurationCommandOutput
+    | GetBucketAclCommandOutput
+    | GetBucketAnalyticsConfigurationCommandOutput
+    | GetBucketCorsCommandOutput
+    | GetBucketEncryptionCommandOutput
+    | GetBucketIntelligentTieringConfigurationCommandOutput
+    | GetBucketInventoryConfigurationCommandOutput
+    | GetBucketLifecycleConfigurationCommandOutput
+    | GetBucketLocationCommandOutput
+    | GetBucketLoggingCommandOutput
+    | GetBucketMetricsConfigurationCommandOutput
+    | GetBucketNotificationConfigurationCommandOutput
+    | GetBucketOwnershipControlsCommandOutput
+    | GetBucketPolicyCommandOutput
+    | GetBucketPolicyStatusCommandOutput
+    | GetBucketReplicationCommandOutput
+    | GetBucketRequestPaymentCommandOutput
+    | GetBucketTaggingCommandOutput
+    | GetBucketVersioningCommandOutput
+    | GetBucketWebsiteCommandOutput;
 
 /**
  * @public
