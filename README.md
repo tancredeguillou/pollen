@@ -877,7 +877,7 @@ PutObject
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutObjectAcl
 </summary>
 
@@ -885,7 +885,7 @@ PutObjectAcl
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutObjectLegalHold
 </summary>
 
@@ -893,7 +893,7 @@ PutObjectLegalHold
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutObjectLockConfiguration
 </summary>
 
@@ -901,7 +901,7 @@ PutObjectLockConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutObjectRetention
 </summary>
 
@@ -909,7 +909,7 @@ PutObjectRetention
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 PutObjectTagging
 </summary>
 

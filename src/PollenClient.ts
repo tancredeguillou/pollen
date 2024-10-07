@@ -262,6 +262,26 @@ import {
     PutBucketWebsiteCommandInput,
     PutBucketWebsiteCommandOutput
 } from "./commands/PutBucketWebsiteCommand";
+import {
+    PutObjectAclCommandInput,
+    PutObjectAclCommandOutput
+} from "./commands/PutObjectAclCommand";
+import {
+    PutObjectLegalHoldCommandInput,
+    PutObjectLegalHoldCommandOutput
+} from "./commands/PutObjectLegalHoldCommand";
+import {
+    PutObjectLockConfigurationCommandInput,
+    PutObjectLockConfigurationCommandOutput
+} from "./commands/PutObjectLockConfigurationCommand";
+import {
+    PutObjectRetentionCommandInput,
+    PutObjectRetentionCommandOutput
+} from "./commands/PutObjectRetentionCommand";
+import {
+    PutObjectTaggingCommandInput,
+    PutObjectTaggingCommandOutput
+} from "./commands/PutObjectTaggingCommand";
 
 import { Command } from "./command";
 
@@ -338,7 +358,12 @@ export type ServiceInputTypes =
     | PutBucketRequestPaymentCommandInput
     | PutBucketTaggingCommandInput
     | PutBucketVersioningCommandInput
-    | PutBucketWebsiteCommandInput;
+    | PutBucketWebsiteCommandInput
+    | PutObjectAclCommandInput
+    | PutObjectLegalHoldCommandInput
+    | PutObjectLockConfigurationCommandInput
+    | PutObjectRetentionCommandInput
+    | PutObjectTaggingCommandInput;
 
 /**
  * @public
@@ -408,7 +433,12 @@ export type ServiceOutputTypes =
     | PutBucketRequestPaymentCommandOutput
     | PutBucketTaggingCommandOutput
     | PutBucketVersioningCommandOutput
-    | PutBucketWebsiteCommandOutput;
+    | PutBucketWebsiteCommandOutput
+    | PutObjectAclCommandOutput
+    | PutObjectLegalHoldCommandOutput
+    | PutObjectLockConfigurationCommandOutput
+    | PutObjectRetentionCommandOutput
+    | PutObjectTaggingCommandOutput;
 
 /**
  * @public
