@@ -261,7 +261,7 @@ DeleteBucket
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketAnalyticsConfiguration
 </summary>
 
@@ -269,7 +269,7 @@ DeleteBucketAnalyticsConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketCors
 </summary>
 
@@ -277,7 +277,7 @@ DeleteBucketCors
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketEncryption
 </summary>
 
@@ -285,7 +285,7 @@ DeleteBucketEncryption
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketIntelligentTieringConfiguration
 </summary>
 
@@ -293,7 +293,7 @@ DeleteBucketIntelligentTieringConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketInventoryConfiguration
 </summary>
 
@@ -301,7 +301,7 @@ DeleteBucketInventoryConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketLifecycle
 </summary>
 
@@ -309,7 +309,7 @@ DeleteBucketLifecycle
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketMetricsConfiguration
 </summary>
 
@@ -317,7 +317,7 @@ DeleteBucketMetricsConfiguration
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketOwnershipControls
 </summary>
 
@@ -325,7 +325,7 @@ DeleteBucketOwnershipControls
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketPolicy
 </summary>
 
@@ -333,7 +333,7 @@ DeleteBucketPolicy
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketReplication
 </summary>
 
@@ -341,7 +341,7 @@ DeleteBucketReplication
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketTagging
 </summary>
 
@@ -349,7 +349,7 @@ DeleteBucketTagging
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteBucketWebsite
 </summary>
 

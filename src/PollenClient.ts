@@ -142,10 +142,58 @@ import {
     GetBucketWebsiteCommandInput,
     GetBucketWebsiteCommandOutput
 } from "./commands/GetBucketWebsiteCommand";
+import {
+    DeleteBucketAnalyticsConfigurationCommandInput,
+    DeleteBucketAnalyticsConfigurationCommandOutput
+} from "./commands/DeleteBucketAnalyticsConfigurationCommand";
+import {
+    DeleteBucketCorsCommandInput,
+    DeleteBucketCorsCommandOutput
+} from "./commands/DeleteBucketCorsCommand";
+import {
+    DeleteBucketEncryptionCommandInput,
+    DeleteBucketEncryptionCommandOutput
+} from "./commands/DeleteBucketEncryptionCommand";
+import {
+    DeleteBucketIntelligentTieringConfigurationCommandInput,
+    DeleteBucketIntelligentTieringConfigurationCommandOutput
+} from "./commands/DeleteBucketIntelligentTieringConfigurationCommand";
+import {
+    DeleteBucketInventoryConfigurationCommandInput,
+    DeleteBucketInventoryConfigurationCommandOutput
+} from "./commands/DeleteBucketInventoryConfigurationCommand";
+import {
+    DeleteBucketLifecycleCommandInput,
+    DeleteBucketLifecycleCommandOutput
+} from "./commands/DeleteBucketLifecycleCommand";
+import {
+    DeleteBucketMetricsConfigurationCommandInput,
+    DeleteBucketMetricsConfigurationCommandOutput
+} from "./commands/DeleteBucketMetricsConfigurationCommand";
+import {
+    DeleteBucketOwnershipControlsCommandInput,
+    DeleteBucketOwnershipControlsCommandOutput
+} from "./commands/DeleteBucketOwnershipControlsCommand";
+import {
+    DeleteBucketPolicyCommandInput,
+    DeleteBucketPolicyCommandOutput
+} from "./commands/DeleteBucketPolicyCommand";
+import {
+    DeleteBucketReplicationCommandInput,
+    DeleteBucketReplicationCommandOutput
+} from "./commands/DeleteBucketReplicationCommand";
+import {
+    DeleteBucketTaggingCommandInput,
+    DeleteBucketTaggingCommandOutput
+} from "./commands/DeleteBucketTaggingCommand";
+import {
+    DeleteBucketWebsiteCommandInput,
+    DeleteBucketWebsiteCommandOutput
+} from "./commands/DeleteBucketWebsiteCommand";
 
 import { Command } from "./command";
 
-import { Providers, ProviderType } from "./providers/providers";
+import { Providers } from "./providers/providers";
 import { AWSProviderConfig } from "./providers/awsProvider";
 import { AzureProviderConfig } from "./providers/azureProvider";
 import { GCSProviderConfig } from "./providers/gcsProvider";
@@ -188,7 +236,19 @@ export type ServiceInputTypes =
     | GetBucketRequestPaymentCommandInput
     | GetBucketTaggingCommandInput
     | GetBucketVersioningCommandInput
-    | GetBucketWebsiteCommandInput;
+    | GetBucketWebsiteCommandInput
+    | DeleteBucketAnalyticsConfigurationCommandInput
+    | DeleteBucketCorsCommandInput
+    | DeleteBucketEncryptionCommandInput
+    | DeleteBucketIntelligentTieringConfigurationCommandInput
+    | DeleteBucketInventoryConfigurationCommandInput
+    | DeleteBucketLifecycleCommandInput
+    | DeleteBucketMetricsConfigurationCommandInput
+    | DeleteBucketOwnershipControlsCommandInput
+    | DeleteBucketPolicyCommandInput
+    | DeleteBucketReplicationCommandInput
+    | DeleteBucketTaggingCommandInput
+    | DeleteBucketWebsiteCommandInput;
 
 /**
  * @public
@@ -228,7 +288,19 @@ export type ServiceOutputTypes =
     | GetBucketRequestPaymentCommandOutput
     | GetBucketTaggingCommandOutput
     | GetBucketVersioningCommandOutput
-    | GetBucketWebsiteCommandOutput;
+    | GetBucketWebsiteCommandOutput
+    | DeleteBucketAnalyticsConfigurationCommandOutput
+    | DeleteBucketCorsCommandOutput
+    | DeleteBucketEncryptionCommandOutput
+    | DeleteBucketIntelligentTieringConfigurationCommandOutput
+    | DeleteBucketInventoryConfigurationCommandOutput
+    | DeleteBucketLifecycleCommandOutput
+    | DeleteBucketMetricsConfigurationCommandOutput
+    | DeleteBucketOwnershipControlsCommandOutput
+    | DeleteBucketPolicyCommandOutput
+    | DeleteBucketReplicationCommandOutput
+    | DeleteBucketTaggingCommandOutput
+    | DeleteBucketWebsiteCommandOutput;
 
 /**
  * @public
