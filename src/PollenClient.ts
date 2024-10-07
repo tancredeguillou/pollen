@@ -290,6 +290,14 @@ import {
     HeadObjectCommandInput,
     HeadObjectCommandOutput
 } from "./commands/HeadObjectCommand";
+import {
+    GetPublicAccessBlockCommandInput,
+    GetPublicAccessBlockCommandOutput
+} from "./commands/GetPublicAccessBlockCommand";
+import {
+    DeleteObjectTaggingCommandInput,
+    DeleteObjectTaggingCommandOutput
+} from "./commands/DeleteObjectTaggingCommand";
 
 import { Command } from "./command";
 
@@ -373,7 +381,9 @@ export type ServiceInputTypes =
     | PutObjectRetentionCommandInput
     | PutObjectTaggingCommandInput
     | HeadBucketCommandInput
-    | HeadObjectCommandInput;
+    | HeadObjectCommandInput
+    | GetPublicAccessBlockCommandInput
+    | DeleteObjectTaggingCommandInput;
 
 /**
  * @public
@@ -450,7 +460,9 @@ export type ServiceOutputTypes =
     | PutObjectRetentionCommandOutput
     | PutObjectTaggingCommandOutput
     | HeadBucketCommandOutput
-    | HeadObjectCommandOutput;
+    | HeadObjectCommandOutput
+    | GetPublicAccessBlockCommandOutput
+    | DeleteObjectTaggingCommandOutput;
 
 /**
  * @public

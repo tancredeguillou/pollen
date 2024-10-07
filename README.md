@@ -373,7 +373,7 @@ DeleteObjects
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 DeleteObjectTagging
 </summary>
 
@@ -613,7 +613,7 @@ GetObjectTorrent
 
 </details>
 <details>
-<summary> TODO -
+<summary>
 GetPublicAccessBlock
 </summary>
 
