@@ -8,6 +8,15 @@ Pollen SDK for JavaScript Client for Node.js, Browser and React Native. This SDK
 
 ## Installing
 
+#### Prerequisites
+
+Pollen relies on other providers to fragment the data and distribute it in the cloud. Before installing and using Pollen, you need:
+- AWS: Create an S3 Bucket and install [AWS SDK](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html).
+- Azure: [Set up and Azure Blob Storage client](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-nodejs?tabs=managed-identity%2Croles-azure-portal%2Csign-in-visual-studio-code&pivots=blob-storage-quickstart-scratch).
+- GCS: Create a Google Cloud Storage account and [set up a Node.js client](https://cloud.google.com/nodejs/docs/reference/storage/latest).
+
+#### Installation (TODO - Package Manager download not yet available)
+
 To install the this package, simply type add or install @pollen-sdk
 using your favorite package manager:
 
