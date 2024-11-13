@@ -6,15 +6,15 @@ import { AzureProvider } from '../src/providers/azureProvider';
 
 const pollenClientConfig: PollenClientConfig = {
     awsConfig: {
-        accessKeyId: "ASIA5ZVQSBTGUZ4HYRTH",
-        secretAccessKey: "majmp/r6jn6wcF4O+EmFN1TkKYRCTdgkn9g+J9JF",
-        sessionToken: "IQoJb3JpZ2luX2VjEFwaCXVzLWVhc3QtMiJHMEUCIQC6vC88ryp5QRjN4YKOSjCGzr3brpcKUjXLhd2Rs1JnyAIgFqGNaK/okC4WMEbQI1CzVkIQUreGBDhuQIwKWJC55z4qjQMIpf//////////ARABGgw5NDg0ODQzMTIyNjkiDH1kRdY7AwlHWRZ8DSrhAp7hoOKBMkncEPKDYfZLotxTuVVF1LJXvVH/eyelrkYU+DVxaIPcQ0GcjHFoRfrCxdAVxx7YEbeVRVKDP6bdJlmKli8/QdLqC2jgGlToDEas9X3J/ecKl+STsf1I79AveksjFRSuBsX6Imc6V3BiLWNyStoV3MJmHnBeK7rwHo6whqXfwur2NE1KLtNf4VrEuLXgIU20YsETz+l1diTzWSGndTKo/pY6ODV5PFZJKWdmaeXqWR9Pg5x5c3E2EwLNQPkN1bprwsvvA7vNmHlcrTLwAvS3uFNqdE0Y1eu28UX/cj9irdC4ZAjGJWUD6b2D4yw2JWX8FSFZL0yComsDN/sdR14j5Xj3btSmgA70FHwPnelbixdsE0S1eWSJipAKzpI3XNomBS2VCKYnqhL/cxUFzzs/mMjChD2YUzjrbgOaIU3FmjPfo2P/bkG2/YoPOZOoPLV6PxQ3lFCTlYMeskKpMKfs9LcGOqYBJ/WvUYnBv3WSGsE6NJ/eWR/cBRbEYizcNIHR0qFdKSbW+a5qni/MnWMwMqgfnPUUG/wgrvSBoCItD5YtLFVmjnu+je01pE9z7fLagTs+wjgMG08hGVO8oItIi9kbbeFcMadhPINlaz+kaateAlBALs8s2by+5bMj+CAMyzuoXvM8BikUNihn6WOxhhVlTwj1jaKguC7o3vB9/UXw27tYfJZrNDpRUQ=="
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+        sessionToken: process.env.AWS_SESSION_TOKEN
     },
     azureConfig: {
-        connectionString: "DefaultEndpointsProtocol=https;AccountName=tancredempc;AccountKey=UkPA9xwO7KlblyFNIbIxo9f3+QvefAxVOIYbpVVoR/+t3z0u71CgHrfCbAi3WPePwTe5/DS7vx4Y+AStZPm+Tw==;EndpointSuffix=core.windows.net"
+        connectionString: process.env.AZURE_STORAGE_CONNECTION_STRING
     },
     gcsConfig: {
-        projectId: "peak-geode-436211-p8"
+        projectId: process.env.GCS_PROJECT_ID
     }
 };
 
