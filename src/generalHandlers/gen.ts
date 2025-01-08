@@ -32,7 +32,7 @@ const pollenClientConfig: PollenClientConfig = {
         connectionString: process.env.AZURE_STORAGE_CONNECTION_STRING
     },
     gcsConfig: {
-        projectId: process.env.GCS_PROJECT_ID
+        projectId: process.env.GCLOUD_STORAGE_PROJECT_ID
     }
 };
 

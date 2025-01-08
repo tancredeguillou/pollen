@@ -16,14 +16,14 @@ import {
     ListBucketsCommand
 } from "@aws-sdk/client-s3";
 
-import { DistributedProvider } from './provider'
+import { DistributedProvider } from './provider.js'
 import { StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 // Commands imported from AWS SDK
 import { CopyObjectCommand } from "@aws-sdk/client-s3";
 
 // Command Inputs imported from Commands
-import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
+import { CopyObjectCommandInput } from "../commands/CopyObjectCommand.js";
 
 export interface AWSProviderConfig {
     accessKeyId?: string;

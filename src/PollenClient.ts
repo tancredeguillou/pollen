@@ -5,306 +5,306 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import {
     CreateBucketCommandInput,
     CreateBucketCommandOutput
-} from "./commands/CreateBucketCommand";
+} from "./commands/CreateBucketCommand.js";
 import {
     ListBucketsCommandInput,
     ListBucketsCommandOutput
-} from "./commands/ListBucketsCommand";
+} from "./commands/ListBucketsCommand.js";
 import {
     PutObjectCommandInput,
     PutObjectCommandOutput
-} from "./commands/PutObjectCommand";
+} from "./commands/PutObjectCommand.js";
 import {
     DeleteBucketCommandInput,
     DeleteBucketCommandOutput
-} from "./commands/DeleteBucketCommand";
+} from "./commands/DeleteBucketCommand.js";
 import {
     DeleteObjectCommandOutput,
     DeleteObjectCommandInput,
-} from "./commands/DeleteObjectCommand";
+} from "./commands/DeleteObjectCommand.js";
 import {
     GetObjectCommandInput,
     GetObjectCommandOutput
-} from "./commands/GetObjectCommand";
+} from "./commands/GetObjectCommand.js";
 import {
     ListObjectsCommandInput,
     ListObjectsCommandOutput
-} from "./commands/ListObjectsCommand";
+} from "./commands/ListObjectsCommand.js";
 import {
     CopyObjectCommandInput,
     CopyObjectCommandOutput
-} from "./commands/CopyObjectCommand";
+} from "./commands/CopyObjectCommand.js";
 import {
     GetObjectAclCommandInput,
     GetObjectAclCommandOutput
-} from "./commands/GetObjectAclCommand";
+} from "./commands/GetObjectAclCommand.js";
 import {
     GetObjectAttributesCommandInput,
     GetObjectAttributesCommandOutput
-} from "./commands/GetObjectAttributesCommand";
+} from "./commands/GetObjectAttributesCommand.js";
 import {
     GetObjectLegalHoldCommandInput,
     GetObjectLegalHoldCommandOutput
-} from "./commands/GetObjectLegalHoldCommand";
+} from "./commands/GetObjectLegalHoldCommand.js";
 import {
     GetObjectLockConfigurationCommandInput,
     GetObjectLockConfigurationCommandOutput
-} from "./commands/GetObjectLockConfigurationCommand";
+} from "./commands/GetObjectLockConfigurationCommand.js";
 import {
     GetObjectRetentionCommandInput,
     GetObjectRetentionCommandOutput
-} from "./commands/GetObjectRetentionCommand";
+} from "./commands/GetObjectRetentionCommand.js";
 import {
     GetObjectTaggingCommandInput,
     GetObjectTaggingCommandOutput
-} from "./commands/GetObjectTaggingCommand";
+} from "./commands/GetObjectTaggingCommand.js";
 import {
     GetObjectTorrentCommandInput,
     GetObjectTorrentCommandOutput
-} from "./commands/GetObjectTorrentCommand";
+} from "./commands/GetObjectTorrentCommand.js";
 import {
     GetBucketAccelerateConfigurationCommandInput,
     GetBucketAccelerateConfigurationCommandOutput
-} from "./commands/GetBucketAccelerateConfigurationCommand";
+} from "./commands/GetBucketAccelerateConfigurationCommand.js";
 import {
     GetBucketAclCommandInput,
     GetBucketAclCommandOutput
-} from "./commands/GetBucketAclCommand";
+} from "./commands/GetBucketAclCommand.js";
 import {
     GetBucketAnalyticsConfigurationCommandInput,
     GetBucketAnalyticsConfigurationCommandOutput
-} from "./commands/GetBucketAnalyticsConfigurationCommand";
+} from "./commands/GetBucketAnalyticsConfigurationCommand.js";
 import {
     GetBucketCorsCommandInput,
     GetBucketCorsCommandOutput
-} from "./commands/GetBucketCorsCommand";
+} from "./commands/GetBucketCorsCommand.js";
 import {
     GetBucketEncryptionCommandInput,
     GetBucketEncryptionCommandOutput
-} from "./commands/GetBucketEncryptionCommand";
+} from "./commands/GetBucketEncryptionCommand.js";
 import {
     GetBucketIntelligentTieringConfigurationCommandInput,
     GetBucketIntelligentTieringConfigurationCommandOutput
-} from "./commands/GetBucketIntelligentTieringConfigurationCommand";
+} from "./commands/GetBucketIntelligentTieringConfigurationCommand.js";
 import {
     GetBucketInventoryConfigurationCommandInput,
     GetBucketInventoryConfigurationCommandOutput
-} from "./commands/GetBucketInventoryConfigurationCommand";
+} from "./commands/GetBucketInventoryConfigurationCommand.js";
 import {
     GetBucketLifecycleConfigurationCommandInput,
     GetBucketLifecycleConfigurationCommandOutput
-} from "./commands/GetBucketLifecycleConfigurationCommand";
+} from "./commands/GetBucketLifecycleConfigurationCommand.js";
 import {
     GetBucketLocationCommandInput,
     GetBucketLocationCommandOutput
-} from "./commands/GetBucketLocationCommand";
+} from "./commands/GetBucketLocationCommand.js";
 import {
     GetBucketLoggingCommandInput,
     GetBucketLoggingCommandOutput
-} from "./commands/GetBucketLoggingCommand";
+} from "./commands/GetBucketLoggingCommand.js";
 import {
     GetBucketMetricsConfigurationCommandInput,
     GetBucketMetricsConfigurationCommandOutput
-} from "./commands/GetBucketMetricsConfigurationCommand";
+} from "./commands/GetBucketMetricsConfigurationCommand.js";
 import {
     GetBucketNotificationConfigurationCommandInput,
     GetBucketNotificationConfigurationCommandOutput
-} from "./commands/GetBucketNotificationConfigurationCommand";
+} from "./commands/GetBucketNotificationConfigurationCommand.js";
 import {
     GetBucketOwnershipControlsCommandInput,
     GetBucketOwnershipControlsCommandOutput
-} from "./commands/GetBucketOwnershipControlsCommand";
+} from "./commands/GetBucketOwnershipControlsCommand.js";
 import {
     GetBucketPolicyCommandInput,
     GetBucketPolicyCommandOutput
-} from "./commands/GetBucketPolicyCommand";
+} from "./commands/GetBucketPolicyCommand.js";
 import {
     GetBucketPolicyStatusCommandInput,
     GetBucketPolicyStatusCommandOutput
-} from "./commands/GetBucketPolicyStatusCommand";
+} from "./commands/GetBucketPolicyStatusCommand.js";
 import {
     GetBucketReplicationCommandInput,
     GetBucketReplicationCommandOutput
-} from "./commands/GetBucketReplicationCommand";
+} from "./commands/GetBucketReplicationCommand.js";
 import {
     GetBucketRequestPaymentCommandInput,
     GetBucketRequestPaymentCommandOutput
-} from "./commands/GetBucketRequestPaymentCommand";
+} from "./commands/GetBucketRequestPaymentCommand.js";
 import {
     GetBucketTaggingCommandInput,
     GetBucketTaggingCommandOutput
-} from "./commands/GetBucketTaggingCommand";
+} from "./commands/GetBucketTaggingCommand.js";
 import {
     GetBucketVersioningCommandInput,
     GetBucketVersioningCommandOutput
-} from "./commands/GetBucketVersioningCommand";
+} from "./commands/GetBucketVersioningCommand.js";
 import {
     GetBucketWebsiteCommandInput,
     GetBucketWebsiteCommandOutput
-} from "./commands/GetBucketWebsiteCommand";
+} from "./commands/GetBucketWebsiteCommand.js";
 import {
     DeleteBucketAnalyticsConfigurationCommandInput,
     DeleteBucketAnalyticsConfigurationCommandOutput
-} from "./commands/DeleteBucketAnalyticsConfigurationCommand";
+} from "./commands/DeleteBucketAnalyticsConfigurationCommand.js";
 import {
     DeleteBucketCorsCommandInput,
     DeleteBucketCorsCommandOutput
-} from "./commands/DeleteBucketCorsCommand";
+} from "./commands/DeleteBucketCorsCommand.js";
 import {
     DeleteBucketEncryptionCommandInput,
     DeleteBucketEncryptionCommandOutput
-} from "./commands/DeleteBucketEncryptionCommand";
+} from "./commands/DeleteBucketEncryptionCommand.js";
 import {
     DeleteBucketIntelligentTieringConfigurationCommandInput,
     DeleteBucketIntelligentTieringConfigurationCommandOutput
-} from "./commands/DeleteBucketIntelligentTieringConfigurationCommand";
+} from "./commands/DeleteBucketIntelligentTieringConfigurationCommand.js";
 import {
     DeleteBucketInventoryConfigurationCommandInput,
     DeleteBucketInventoryConfigurationCommandOutput
-} from "./commands/DeleteBucketInventoryConfigurationCommand";
+} from "./commands/DeleteBucketInventoryConfigurationCommand.js";
 import {
     DeleteBucketLifecycleCommandInput,
     DeleteBucketLifecycleCommandOutput
-} from "./commands/DeleteBucketLifecycleCommand";
+} from "./commands/DeleteBucketLifecycleCommand.js";
 import {
     DeleteBucketMetricsConfigurationCommandInput,
     DeleteBucketMetricsConfigurationCommandOutput
-} from "./commands/DeleteBucketMetricsConfigurationCommand";
+} from "./commands/DeleteBucketMetricsConfigurationCommand.js";
 import {
     DeleteBucketOwnershipControlsCommandInput,
     DeleteBucketOwnershipControlsCommandOutput
-} from "./commands/DeleteBucketOwnershipControlsCommand";
+} from "./commands/DeleteBucketOwnershipControlsCommand.js";
 import {
     DeleteBucketPolicyCommandInput,
     DeleteBucketPolicyCommandOutput
-} from "./commands/DeleteBucketPolicyCommand";
+} from "./commands/DeleteBucketPolicyCommand.js";
 import {
     DeleteBucketReplicationCommandInput,
     DeleteBucketReplicationCommandOutput
-} from "./commands/DeleteBucketReplicationCommand";
+} from "./commands/DeleteBucketReplicationCommand.js";
 import {
     DeleteBucketTaggingCommandInput,
     DeleteBucketTaggingCommandOutput
-} from "./commands/DeleteBucketTaggingCommand";
+} from "./commands/DeleteBucketTaggingCommand.js";
 import {
     DeleteBucketWebsiteCommandInput,
     DeleteBucketWebsiteCommandOutput
-} from "./commands/DeleteBucketWebsiteCommand";
+} from "./commands/DeleteBucketWebsiteCommand.js";
 import {
     PutBucketAccelerateConfigurationCommandInput,
     PutBucketAccelerateConfigurationCommandOutput
-} from "./commands/PutBucketAccelerateConfigurationCommand";
+} from "./commands/PutBucketAccelerateConfigurationCommand.js";
 import {
     PutBucketAclCommandInput,
     PutBucketAclCommandOutput
-} from "./commands/PutBucketAclCommand";
+} from "./commands/PutBucketAclCommand.js";
 import {
     PutBucketAnalyticsConfigurationCommandInput,
     PutBucketAnalyticsConfigurationCommandOutput
-} from "./commands/PutBucketAnalyticsConfigurationCommand";
+} from "./commands/PutBucketAnalyticsConfigurationCommand.js";
 import {
     PutBucketCorsCommandInput,
     PutBucketCorsCommandOutput
-} from "./commands/PutBucketCorsCommand";
+} from "./commands/PutBucketCorsCommand.js";
 import {
     PutBucketEncryptionCommandInput,
     PutBucketEncryptionCommandOutput
-} from "./commands/PutBucketEncryptionCommand";
+} from "./commands/PutBucketEncryptionCommand.js";
 import {
     PutBucketIntelligentTieringConfigurationCommandInput,
     PutBucketIntelligentTieringConfigurationCommandOutput
-} from "./commands/PutBucketIntelligentTieringConfigurationCommand";
+} from "./commands/PutBucketIntelligentTieringConfigurationCommand.js";
 import {
     PutBucketInventoryConfigurationCommandInput,
     PutBucketInventoryConfigurationCommandOutput
-} from "./commands/PutBucketInventoryConfigurationCommand";
+} from "./commands/PutBucketInventoryConfigurationCommand.js";
 import {
     PutBucketLifecycleConfigurationCommandInput,
     PutBucketLifecycleConfigurationCommandOutput
-} from "./commands/PutBucketLifecycleConfigurationCommand";
+} from "./commands/PutBucketLifecycleConfigurationCommand.js";
 import {
     PutBucketLoggingCommandInput,
     PutBucketLoggingCommandOutput
-} from "./commands/PutBucketLoggingCommand";
+} from "./commands/PutBucketLoggingCommand.js";
 import {
     PutBucketMetricsConfigurationCommandInput,
     PutBucketMetricsConfigurationCommandOutput
-} from "./commands/PutBucketMetricsConfigurationCommand";
+} from "./commands/PutBucketMetricsConfigurationCommand.js";
 import {
     PutBucketNotificationConfigurationCommandInput,
     PutBucketNotificationConfigurationCommandOutput
-} from "./commands/PutBucketNotificationConfigurationCommand";
+} from "./commands/PutBucketNotificationConfigurationCommand.js";
 import {
     PutBucketOwnershipControlsCommandInput,
     PutBucketOwnershipControlsCommandOutput
-} from "./commands/PutBucketOwnershipControlsCommand";
+} from "./commands/PutBucketOwnershipControlsCommand.js";
 import {
     PutBucketPolicyCommandInput,
     PutBucketPolicyCommandOutput
-} from "./commands/PutBucketPolicyCommand";
+} from "./commands/PutBucketPolicyCommand.js";
 import {
     PutBucketReplicationCommandInput,
     PutBucketReplicationCommandOutput
-} from "./commands/PutBucketReplicationCommand";
+} from "./commands/PutBucketReplicationCommand.js";
 import {
     PutBucketRequestPaymentCommandInput,
     PutBucketRequestPaymentCommandOutput
-} from "./commands/PutBucketRequestPaymentCommand";
+} from "./commands/PutBucketRequestPaymentCommand.js";
 import {
     PutBucketTaggingCommandInput,
     PutBucketTaggingCommandOutput
-} from "./commands/PutBucketTaggingCommand";
+} from "./commands/PutBucketTaggingCommand.js";
 import {
     PutBucketVersioningCommandInput,
     PutBucketVersioningCommandOutput
-} from "./commands/PutBucketVersioningCommand";
+} from "./commands/PutBucketVersioningCommand.js";
 import {
     PutBucketWebsiteCommandInput,
     PutBucketWebsiteCommandOutput
-} from "./commands/PutBucketWebsiteCommand";
+} from "./commands/PutBucketWebsiteCommand.js";
 import {
     PutObjectAclCommandInput,
     PutObjectAclCommandOutput
-} from "./commands/PutObjectAclCommand";
+} from "./commands/PutObjectAclCommand.js";
 import {
     PutObjectLegalHoldCommandInput,
     PutObjectLegalHoldCommandOutput
-} from "./commands/PutObjectLegalHoldCommand";
+} from "./commands/PutObjectLegalHoldCommand.js";
 import {
     PutObjectLockConfigurationCommandInput,
     PutObjectLockConfigurationCommandOutput
-} from "./commands/PutObjectLockConfigurationCommand";
+} from "./commands/PutObjectLockConfigurationCommand.js";
 import {
     PutObjectRetentionCommandInput,
     PutObjectRetentionCommandOutput
-} from "./commands/PutObjectRetentionCommand";
+} from "./commands/PutObjectRetentionCommand.js";
 import {
     PutObjectTaggingCommandInput,
     PutObjectTaggingCommandOutput
-} from "./commands/PutObjectTaggingCommand";
+} from "./commands/PutObjectTaggingCommand.js";
 import {
     HeadBucketCommandInput,
     HeadBucketCommandOutput
-} from "./commands/HeadBucketCommand";
+} from "./commands/HeadBucketCommand.js";
 import {
     HeadObjectCommandInput,
     HeadObjectCommandOutput
-} from "./commands/HeadObjectCommand";
+} from "./commands/HeadObjectCommand.js";
 import {
     GetPublicAccessBlockCommandInput,
     GetPublicAccessBlockCommandOutput
-} from "./commands/GetPublicAccessBlockCommand";
+} from "./commands/GetPublicAccessBlockCommand.js";
 import {
     DeleteObjectTaggingCommandInput,
     DeleteObjectTaggingCommandOutput
-} from "./commands/DeleteObjectTaggingCommand";
+} from "./commands/DeleteObjectTaggingCommand.js";
 
-import { Command } from "./command";
+import { Command } from "./command.js";
 
-import { Providers } from "./providers/providers";
-import { AWSProviderConfig } from "./providers/awsProvider";
-import { AzureProviderConfig } from "./providers/azureProvider";
-import { GCSProviderConfig } from "./providers/gcsProvider";
+import { Providers } from "./providers/providers.js";
+import { AWSProviderConfig } from "./providers/awsProvider.js";
+import { AzureProviderConfig } from "./providers/azureProvider.js";
+import { GCSProviderConfig } from "./providers/gcsProvider.js";
 
 /**
  * @public

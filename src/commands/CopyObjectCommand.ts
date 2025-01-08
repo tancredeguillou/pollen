@@ -3,10 +3,10 @@
  */
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CopyObjectRequest, CopyObjectOutput } from "../models/models_0";
-import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient";
+import { CopyObjectRequest, CopyObjectOutput } from "../models/models_0.js";
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient.js";
 import { Command } from "../command.js";
-import { Providers } from "../providers/providers";
+import { Providers } from "../providers/providers.js";
 
 /**
  * @public

@@ -7,9 +7,9 @@
 
 import { Storage } from '@google-cloud/storage'
 
-import { DistributedProvider } from './provider'
+import { DistributedProvider } from './provider.js'
 import { StreamingBlobPayloadInputTypes } from '@smithy/types';
-import { CopyObjectCommandInput } from '../commands/CopyObjectCommand';
+import { CopyObjectCommandInput } from '../commands/CopyObjectCommand.js';
 
 // type SaveData = string | Uint8Array | Buffer | internal.PipelineSource<string | Uint8Array | Buffer>
 // type StreamingBlobPayloadInputTypes = string | Uint8Array | Buffer | internal.Readable | ReadableStream<any> | Blob

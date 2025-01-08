@@ -8,9 +8,9 @@
 import { BlobServiceClient } from "@azure/storage-blob";
 import { DefaultAzureCredential } from "@azure/identity"
 
-import { DistributedProvider } from './provider'
+import { DistributedProvider } from './provider.js'
 import { StreamingBlobPayloadInputTypes } from "@smithy/types";
-import { CopyObjectCommandInput } from "../commands/CopyObjectCommand";
+import { CopyObjectCommandInput } from "../commands/CopyObjectCommand.js";
 
 async function streamToBuffer(readableStream: NodeJS.ReadableStream): Promise<Buffer> {
     return new Promise((resolve, reject) => {

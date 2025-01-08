@@ -3,11 +3,11 @@
  */
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CreateBucketRequest, CreateBucketOutput } from "../models/models"
-import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient"
+import { CreateBucketRequest, CreateBucketOutput } from "../models/models.js"
+import { ServiceInputTypes, ServiceOutputTypes } from "../PollenClient.js"
 
 import { Command } from "../command.js";
-import { Providers } from "../providers/providers";
+import { Providers } from "../providers/providers.js";
 
 export interface CreateBucketCommandInput extends CreateBucketRequest { }
 

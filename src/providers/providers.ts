@@ -2,11 +2,11 @@
  * Author: Tancrede Guillou
  */
 
-import { AWSProvider } from "./awsProvider";
-import { GCSProvider } from "./gcsProvider";
-import { AzureProvider } from "./azureProvider";
+import { AWSProvider } from "./awsProvider.js";
+import { GCSProvider } from "./gcsProvider.js";
+import { AzureProvider } from "./azureProvider.js";
 
-import { PollenClientConfig } from "../PollenClient";
+import { PollenClientConfig } from "../PollenClient.js";
 
 export const allProviders = ["aws", "azure", "gcs"]
 
