@@ -1,9 +1,9 @@
 {
-  "name": "mkl",
+  "name": "pollen",
   "bin": {
-    "mkl": "./dist/bin/cli.js"
+    "pollen": "./dist/bin/cli.js"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/src/index.js",
   "type": "module",
   "scripts": {

@@ -26,6 +26,9 @@ yargs(hideBin(process.argv))
         default: allProviders,
         global: true // Make it available to all commands
     })
+    // Login
+    .command('login', 'Login to Pollen.', {},
+        (args) => (handler.login(args.providers as string[])))
     // Bucket related
     .command('createBucket', 'Create a bucket.', {},
         (args) => (handler.createBucket(args.providers as string[])))

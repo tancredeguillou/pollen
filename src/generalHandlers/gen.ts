@@ -7,6 +7,7 @@
 
 // This is used for getting user input.
 import * as readline from 'readline';
+import { exec } from "child_process";
 
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -35,6 +36,43 @@ const pollenClientConfig: PollenClientConfig = {
         projectId: process.env.GCLOUD_STORAGE_PROJECT_ID
     }
 };
+
+// Function to execute CLI commands
+function executeCommand(command: string) {
+    return new Promise((resolve, reject) => {
+        const child = exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`Error executing command: ${command}\n`, stderr.trim());
+                reject(error);
+            } else {
+                console.log(`Output from ${command}:\n`, stdout.trim());
+                resolve(stdout.trim());
+            }
+        });
+
+        // Forward child process output to the main process
+        child.stdout?.pipe(process.stdout);
+        child.stderr?.pipe(process.stderr);
+    });
+}
+
+/************************ LOGIN FUNCTION ************************/
+export async function login(providers: string[] = allProviders): Promise<void> {
+    try {
+        if (!(providers.includes('aws'))) throw new Error(`aws must be included in the provider list but got ${providers}.`);
+        console.log('Logging into AWS...')
+        await executeCommand('aws sso login')
+        console.log('Succesfully logged into AWS.')
+
+        if (providers.includes('azure')) {
+            console.log('Logging into Azure...')
+            await executeCommand('az login')
+            console.log('Succesfully logged into Azure.')
+        }
+    } catch (error: any) {
+        console.error('Failed to complete login process:', error.message)
+    }
+}
 
 /************************ BUCKET RELATED FUNCTIONS ************************/
 export async function createBucket(providers: string[] = allProviders): Promise<void> {
